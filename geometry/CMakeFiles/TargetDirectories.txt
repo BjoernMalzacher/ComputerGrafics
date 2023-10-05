@@ -1,0 +1,3 @@
+/home/malzacher/ComputerGrafics/geometry/CMakeFiles/geometry_test.dir
+/home/malzacher/ComputerGrafics/geometry/CMakeFiles/edit_cache.dir
+/home/malzacher/ComputerGrafics/geometry/CMakeFiles/rebuild_cache.dir

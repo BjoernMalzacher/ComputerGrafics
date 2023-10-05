@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_compile_options(-g -Wall -Wextra -Wpedantic -Wl,--stack,16777216)
 
-add_executable(math_test math_test.cc math.cc)
-target_link_libraries(math_test gtest gtest_main)
+add_executable(geometry_test geometry_test.cc geometry.cc /home/malzacher/ComputerGrafics/math/math_test.cc /home/malzacher/ComputerGrafics/math/math.cc)
+target_link_libraries( geometry_test gtest gtest_main)
 
