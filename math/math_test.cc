@@ -78,7 +78,7 @@ TEST(VECTOR, CopyConstructor) {
 }
 
 
-/*
+
 TEST(VECTOR, SquareOfLength1) {
   Vector2df vector = {2.0, 2.0};
   
@@ -181,7 +181,7 @@ TEST(VECTOR, Angle0) {
   
   EXPECT_NEAR(0.0f, vector.angle(0,1), 0.00001);
 }
-*/
+
 
 TEST(VECTOR, SumsTwoVectors) {
   Vector2df vector = {1.0, 0.0};
@@ -253,7 +253,7 @@ TEST(VECTOR, ScalarAssignmentDivision) {
   EXPECT_NEAR(0.0, vector1[1], 0.00001);
 }
 
-/*
+
 TEST(VECTOR, ScalarVectorProduct1) {
   Vector2df vector1 = {1.0, 0.0};
   Vector2df vector2 = {0.0, 1.0};
@@ -296,7 +296,7 @@ TEST(VECTOR, ScalarVectorProduct3df_3) {
   
   EXPECT_NEAR(20.0, vector1 * vector2, 0.00001);
 }
-*/
+
 
 TEST(VECTOR, CrossVectorProduct1) {
   Vector3df vector1 = {1.0, 0.0, 0.0};
@@ -400,4 +400,117 @@ TEST(VECTOR, CrossVectorProduct7) {
   EXPECT_NEAR(0.0, cross[2], 0.00001);
 }
 
+// private Testing
+TEST(VECTOR, Length_test01){
+  Vector2df vector = {-1.0, 0.0};
+  float length = vector.length();
+  EXPECT_NEAR(1.0, length, 0.00001);
+}
+
+TEST(VECTOR, Length_test02){
+  Vector2df vector = {0.0, 0.0};
+  float length = vector.length();
+  EXPECT_NEAR(0.0, length, 0.00001);
+}
+
+TEST(VECTOR, Length_test03){
+  Vector2df vector = {1.0, 1.0};
+  float length = vector.length();
+  EXPECT_NEAR(1.41421, length, 0.00001);
+}
+
+TEST(VECTOR, Length_test04){
+  Vector2df vector = {1.0, -1.0};
+  float length = vector.length();
+  EXPECT_NEAR(1.41421, length, 0.00001);
+}
+
+TEST(VECTOR, Length_test05){
+  Vector2df vector = {1.0e-6, 1.0e-6};
+  float length = vector.length();
+  EXPECT_NEAR(1.41421e-6, length, 0.00001e-6);
+}
+
+TEST(VECTOR, Length_test06){
+  Vector2df vector = {1.0e6, 1.0e6};
+  float length = vector.length();
+  EXPECT_NEAR(1.41421e6, length, 0.00001e6);
+}
+
+TEST(VECTOR, Length_test07){
+  Vector2df vector = {1.0, 1.0};
+  vector.normalize();
+  float length = vector.length();
+  EXPECT_NEAR(1.0, length, 0.00001);
+}
+
+TEST(VECTOR, Length_test08){
+  Vector2df vector = {1.0, 1.0};
+  vector *= 2.0;
+  float length = vector.length();
+  EXPECT_NEAR(2.82843, length, 0.00001);
+}
+TEST(VECTOR, SquareOfLength_test01) {
+  Vector3df vector = {1.0, 0.0, 0.0};
+  
+  EXPECT_NEAR(1.0, vector.square_of_length(), 0.00001);
+}
+
+TEST(VECTOR, SquareOfLength_test02) {
+  Vector3df vector = {0.0, 1.0, 0.0};
+  
+  EXPECT_NEAR(1.0, vector.square_of_length(), 0.00001);
+}
+
+TEST(VECTOR, SquareOfLength_test03) {
+  Vector3df vector = {0.0, 0.0, 1.0};
+  
+  EXPECT_NEAR(1.0, vector.square_of_length(), 0.00001);
+}
+
+TEST(VECTOR, SquareOfLength_test04) {
+  Vector3df vector = {1.0, 1.0, 1.0};
+  
+  EXPECT_NEAR(3.0, vector.square_of_length(), 0.00001);
+}
+
+TEST(VECTOR, SquareOfLength_test05) {
+  Vector3df vector = {1.0e-6, 1.0e-6, 1.0e-6};
+  
+  EXPECT_NEAR(3.0e-12, vector.square_of_length(), 0.00001e-12);
+}
+TEST(VECTOR, Normalize_test01) {
+  Vector3df vector = {1.0, 0.0, 0.0};
+  
+  vector.normalize();
+  EXPECT_NEAR(1.0, vector.length(), 0.00001);
+}
+
+TEST(VECTOR, Normalize_test02) {
+  Vector3df vector = {0.0, 1.0, 0.0};
+  
+  vector.normalize();
+  EXPECT_NEAR(1.0, vector.length(), 0.00001);
+}
+
+TEST(VECTOR, Normalize_test03) {
+  Vector3df vector = {0.0, 0.0, 1.0};
+  
+  vector.normalize();
+  EXPECT_NEAR(1.0, vector.length(), 0.00001);
+}
+
+TEST(VECTOR, Normalize_test04) {
+  Vector3df vector = {1.0, 1.0, 1.0};
+  
+  vector.normalize();
+  EXPECT_NEAR(1.0, vector.length(), 0.00001);
+}
+
+TEST(VECTOR, Normalize_test05) {
+  Vector3df vector = {1.0e-6, 1.0e-6, 1.0e-6};
+  
+  vector.normalize();
+  EXPECT_NEAR(1.0, vector.length(), 0.00001);
+}
 }
