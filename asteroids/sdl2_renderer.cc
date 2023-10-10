@@ -10,6 +10,12 @@ void SDL2Renderer::renderSpaceship(Vector2df position, float angle) {
                                               SDL_Point{ 14, 0},
                                               SDL_Point{-10, 6},
                                               SDL_Point{-6, 3}};
+static std::array<SDL_Point, 6> rectangle_points{SDL_Point{-10, -10},
+                                                 SDL_Point{10, -10},
+                                                 SDL_Point{10, 10},
+                                                 SDL_Point{-10, 10}};
+ship_points = rectangle_points;
+
   
   std::array<SDL_Point, ship_points.size()> points;
 
@@ -75,18 +81,27 @@ void SDL2Renderer::render(Torpedo * torpedo) {
 }
   
 void SDL2Renderer::render(Asteroid * asteroid) {
-  static SDL_Point asteroids_points1[] = {
+  
+  static SDL_Point asteroids_points1[] = 
+  {{-10,-10},{10,-10},{10,10},{-10,10}};
+ 
+ /* {
     { 0, -12}, {16, -24}, {32, -12}, {24, 0}, {32, 12}, {8, 24}, {-16, 24}, {-32, 12}, {-32, -12}, {-16, -24}, {0, -12}
-  };   
-  static SDL_Point asteroids_points2[] = {
+  };*/   
+  static SDL_Point asteroids_points2[] = {{-10,-10},{10,-10},{10,10},{-10,10}};
+  /*{
     { 16, -6}, {32, -12}, {16, -24}, {0, -16}, {-16, -24}, {-24, -12}, {-16, -0}, {-32, 12}, {-16, 24}, {-8, 16}, {16, 24}, {32, 6}, {16, -6}
-  }; 
-  static SDL_Point asteroids_points3[] = {
+  };*/ 
+  static SDL_Point asteroids_points3[] = 
+  {{-10,-10},{10,-10},{10,10},{-10,10}};
+  /*{
     {-16, 0}, {-32, 6}, {-16, 24}, {0, 6}, {0, 24}, {16, 24}, {32, 6}, {32, 6}, {16, -24}, {-8, -24}, {-32, -6}, {-16, 0}
-  };
-  static SDL_Point asteroids_points4[] = {  
+  };*/
+  static SDL_Point asteroids_points4[] = 
+  {{-10,-10},{10,-10},{10,10},{-10,10}};
+  /*{  
     {8,0}, {32,-6}, {32, -12}, {8, -24}, {-16, -24}, {-8, -12}, {-32, -12}, {-32, 12}, {-16, 24}, {8, 16}, {16, 24}, {32, 12}, {8, 0}
-  };
+  };*/
   static size_t sizes[] = {std::span{asteroids_points1}.size(),
                            std::span{asteroids_points2}.size(),
                            std::span{asteroids_points3}.size(),
@@ -204,9 +219,9 @@ void SDL2Renderer::renderScore() {
       points[i].y = y +  4 * (digits[d] + i)->y;
     }
     x -= 20;
-//    SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0x00, 0xFF );
+    SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0xFF, 0xFF );
     SDL_RenderDrawLines(renderer, points.data(), size );
-//    SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
+   SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
     no_of_digits--;
   } while (no_of_digits > 0);
 }

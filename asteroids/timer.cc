@@ -38,7 +38,7 @@ void Timer::reset() {
 void Timer::tick_and_delay(float tick_time) {
   end = SDL_GetTicks64();
   Uint64 elapse = end - start;
-  SDL_Delay(1000.0f * tick_time - elapse);
+  SDL_Delay(abs(1000.0f * tick_time - elapse));
   tick(tick_time);
 }
 
