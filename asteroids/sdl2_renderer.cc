@@ -256,6 +256,7 @@ void SDL2Renderer::render() {
   renderFreeShips();
   renderScore();
   SDL_RenderPresent( renderer );
+  
 }
 
 

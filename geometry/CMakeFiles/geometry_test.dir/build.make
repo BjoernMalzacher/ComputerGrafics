@@ -97,48 +97,48 @@ CMakeFiles/geometry_test.dir/geometry.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry_test.dir/geometry.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/geometry/geometry.cc -o CMakeFiles/geometry_test.dir/geometry.cc.s
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o: CMakeFiles/geometry_test.dir/flags.make
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o: /home/malzacher/ComputerGrafics/math/math_test.cc
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o: CMakeFiles/geometry_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/geometry/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o -MF CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o.d -o CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o -c /home/malzacher/ComputerGrafics/math/math_test.cc
+CMakeFiles/geometry_test.dir/math_test.cc.o: CMakeFiles/geometry_test.dir/flags.make
+CMakeFiles/geometry_test.dir/math_test.cc.o: math_test.cc
+CMakeFiles/geometry_test.dir/math_test.cc.o: CMakeFiles/geometry_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/geometry/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/geometry_test.dir/math_test.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/geometry_test.dir/math_test.cc.o -MF CMakeFiles/geometry_test.dir/math_test.cc.o.d -o CMakeFiles/geometry_test.dir/math_test.cc.o -c /home/malzacher/ComputerGrafics/geometry/math_test.cc
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/math/math_test.cc > CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.i
+CMakeFiles/geometry_test.dir/math_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry_test.dir/math_test.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/geometry/math_test.cc > CMakeFiles/geometry_test.dir/math_test.cc.i
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/math/math_test.cc -o CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.s
+CMakeFiles/geometry_test.dir/math_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry_test.dir/math_test.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/geometry/math_test.cc -o CMakeFiles/geometry_test.dir/math_test.cc.s
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o: CMakeFiles/geometry_test.dir/flags.make
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o: /home/malzacher/ComputerGrafics/math/math.cc
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o: CMakeFiles/geometry_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/geometry/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o -MF CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o.d -o CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o -c /home/malzacher/ComputerGrafics/math/math.cc
+CMakeFiles/geometry_test.dir/math.cc.o: CMakeFiles/geometry_test.dir/flags.make
+CMakeFiles/geometry_test.dir/math.cc.o: math.cc
+CMakeFiles/geometry_test.dir/math.cc.o: CMakeFiles/geometry_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/geometry/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/geometry_test.dir/math.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/geometry_test.dir/math.cc.o -MF CMakeFiles/geometry_test.dir/math.cc.o.d -o CMakeFiles/geometry_test.dir/math.cc.o -c /home/malzacher/ComputerGrafics/geometry/math.cc
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/math/math.cc > CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.i
+CMakeFiles/geometry_test.dir/math.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry_test.dir/math.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/geometry/math.cc > CMakeFiles/geometry_test.dir/math.cc.i
 
-CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/math/math.cc -o CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.s
+CMakeFiles/geometry_test.dir/math.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry_test.dir/math.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/geometry/math.cc -o CMakeFiles/geometry_test.dir/math.cc.s
 
 # Object files for target geometry_test
 geometry_test_OBJECTS = \
 "CMakeFiles/geometry_test.dir/geometry_test.cc.o" \
 "CMakeFiles/geometry_test.dir/geometry.cc.o" \
-"CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o" \
-"CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o"
+"CMakeFiles/geometry_test.dir/math_test.cc.o" \
+"CMakeFiles/geometry_test.dir/math.cc.o"
 
 # External object files for target geometry_test
 geometry_test_EXTERNAL_OBJECTS =
 
 geometry_test: CMakeFiles/geometry_test.dir/geometry_test.cc.o
 geometry_test: CMakeFiles/geometry_test.dir/geometry.cc.o
-geometry_test: CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o
-geometry_test: CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o
+geometry_test: CMakeFiles/geometry_test.dir/math_test.cc.o
+geometry_test: CMakeFiles/geometry_test.dir/math.cc.o
 geometry_test: CMakeFiles/geometry_test.dir/build.make
 geometry_test: CMakeFiles/geometry_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/malzacher/ComputerGrafics/geometry/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable geometry_test"

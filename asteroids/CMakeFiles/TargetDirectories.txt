@@ -1,0 +1,8 @@
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/main_game.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/math_test.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/geometry_test.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/physics_test.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/game_test.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/test.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/edit_cache.dir
+/home/malzacher/ComputerGrafics/asteroids/CMakeFiles/rebuild_cache.dir

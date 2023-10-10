@@ -177,53 +177,53 @@ geometry_test.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry_test.cc.s
 .PHONY : geometry_test.cc.s
 
-home/malzacher/ComputerGrafics/math/math.o: home/malzacher/ComputerGrafics/math/math.cc.o
-.PHONY : home/malzacher/ComputerGrafics/math/math.o
+math.o: math.cc.o
+.PHONY : math.o
 
 # target to build an object file
-home/malzacher/ComputerGrafics/math/math.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.o
-.PHONY : home/malzacher/ComputerGrafics/math/math.cc.o
+math.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.o
+.PHONY : math.cc.o
 
-home/malzacher/ComputerGrafics/math/math.i: home/malzacher/ComputerGrafics/math/math.cc.i
-.PHONY : home/malzacher/ComputerGrafics/math/math.i
+math.i: math.cc.i
+.PHONY : math.i
 
 # target to preprocess a source file
-home/malzacher/ComputerGrafics/math/math.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.i
-.PHONY : home/malzacher/ComputerGrafics/math/math.cc.i
+math.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.i
+.PHONY : math.cc.i
 
-home/malzacher/ComputerGrafics/math/math.s: home/malzacher/ComputerGrafics/math/math.cc.s
-.PHONY : home/malzacher/ComputerGrafics/math/math.s
+math.s: math.cc.s
+.PHONY : math.s
 
 # target to generate assembly for a file
-home/malzacher/ComputerGrafics/math/math.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math.cc.s
-.PHONY : home/malzacher/ComputerGrafics/math/math.cc.s
+math.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.s
+.PHONY : math.cc.s
 
-home/malzacher/ComputerGrafics/math/math_test.o: home/malzacher/ComputerGrafics/math/math_test.cc.o
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.o
+math_test.o: math_test.cc.o
+.PHONY : math_test.o
 
 # target to build an object file
-home/malzacher/ComputerGrafics/math/math_test.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.o
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.cc.o
+math_test.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.o
+.PHONY : math_test.cc.o
 
-home/malzacher/ComputerGrafics/math/math_test.i: home/malzacher/ComputerGrafics/math/math_test.cc.i
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.i
+math_test.i: math_test.cc.i
+.PHONY : math_test.i
 
 # target to preprocess a source file
-home/malzacher/ComputerGrafics/math/math_test.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.i
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.cc.i
+math_test.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.i
+.PHONY : math_test.cc.i
 
-home/malzacher/ComputerGrafics/math/math_test.s: home/malzacher/ComputerGrafics/math/math_test.cc.s
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.s
+math_test.s: math_test.cc.s
+.PHONY : math_test.s
 
 # target to generate assembly for a file
-home/malzacher/ComputerGrafics/math/math_test.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/home/malzacher/ComputerGrafics/math/math_test.cc.s
-.PHONY : home/malzacher/ComputerGrafics/math/math_test.cc.s
+math_test.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.s
+.PHONY : math_test.cc.s
 
 # Help Target
 help:
@@ -240,12 +240,12 @@ help:
 	@echo "... geometry_test.o"
 	@echo "... geometry_test.i"
 	@echo "... geometry_test.s"
-	@echo "... home/malzacher/ComputerGrafics/math/math.o"
-	@echo "... home/malzacher/ComputerGrafics/math/math.i"
-	@echo "... home/malzacher/ComputerGrafics/math/math.s"
-	@echo "... home/malzacher/ComputerGrafics/math/math_test.o"
-	@echo "... home/malzacher/ComputerGrafics/math/math_test.i"
-	@echo "... home/malzacher/ComputerGrafics/math/math_test.s"
+	@echo "... math.o"
+	@echo "... math.i"
+	@echo "... math.s"
+	@echo "... math_test.o"
+	@echo "... math_test.i"
+	@echo "... math_test.s"
 .PHONY : help
 
 
