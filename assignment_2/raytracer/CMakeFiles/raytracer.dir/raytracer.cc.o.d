@@ -1,4 +1,4 @@
-CMakeFiles/geometry_test.dir/raytracer.cc.o: \
+CMakeFiles/raytracer.dir/raytracer.cc.o: \
  /home/malzacher/ComputerGrafics/assignment_2/raytracer/raytracer.cc \
  /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
@@ -319,4 +319,5 @@ CMakeFiles/geometry_test.dir/raytracer.cc.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
- /usr/include/c++/11/pstl/execution_defs.h
+ /usr/include/c++/11/pstl/execution_defs.h \
+ /home/malzacher/ComputerGrafics/assignment_2/raytracer/Raytracer_Renderer.h

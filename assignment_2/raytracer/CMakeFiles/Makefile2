@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/malzacher/ComputerGrafics/assignment_2/raytracer
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/geometry_test.dir/all
+all: CMakeFiles/raytracer.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/geometry_test.dir/clean
+clean: CMakeFiles/raytracer.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/geometry_test.dir
+# Target rules for target CMakeFiles/raytracer.dir
 
 # All Build rule for target.
-CMakeFiles/geometry_test.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/malzacher/ComputerGrafics/assignment_2/raytracer/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target geometry_test"
-.PHONY : CMakeFiles/geometry_test.dir/all
+CMakeFiles/raytracer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/malzacher/ComputerGrafics/assignment_2/raytracer/CMakeFiles --progress-num=1,2,3,4,5 "Built target raytracer"
+.PHONY : CMakeFiles/raytracer.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/geometry_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/malzacher/ComputerGrafics/assignment_2/raytracer/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/geometry_test.dir/all
+CMakeFiles/raytracer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/malzacher/ComputerGrafics/assignment_2/raytracer/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/raytracer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/malzacher/ComputerGrafics/assignment_2/raytracer/CMakeFiles 0
-.PHONY : CMakeFiles/geometry_test.dir/rule
+.PHONY : CMakeFiles/raytracer.dir/rule
 
 # Convenience name for target.
-geometry_test: CMakeFiles/geometry_test.dir/rule
-.PHONY : geometry_test
+raytracer: CMakeFiles/raytracer.dir/rule
+.PHONY : raytracer
 
 # clean rule for target.
-CMakeFiles/geometry_test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/clean
-.PHONY : CMakeFiles/geometry_test.dir/clean
+CMakeFiles/raytracer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/clean
+.PHONY : CMakeFiles/raytracer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

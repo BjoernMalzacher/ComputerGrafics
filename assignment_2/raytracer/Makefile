@@ -117,24 +117,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named geometry_test
+# Target rules for targets named raytracer
 
 # Build rule for target.
-geometry_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 geometry_test
-.PHONY : geometry_test
+raytracer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 raytracer
+.PHONY : raytracer
 
 # fast build rule for target.
-geometry_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/build
-.PHONY : geometry_test/fast
+raytracer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/build
+.PHONY : raytracer/fast
+
+Raytracer_Renderer.o: Raytracer_Renderer.cc.o
+.PHONY : Raytracer_Renderer.o
+
+# target to build an object file
+Raytracer_Renderer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/Raytracer_Renderer.cc.o
+.PHONY : Raytracer_Renderer.cc.o
+
+Raytracer_Renderer.i: Raytracer_Renderer.cc.i
+.PHONY : Raytracer_Renderer.i
+
+# target to preprocess a source file
+Raytracer_Renderer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/Raytracer_Renderer.cc.i
+.PHONY : Raytracer_Renderer.cc.i
+
+Raytracer_Renderer.s: Raytracer_Renderer.cc.s
+.PHONY : Raytracer_Renderer.s
+
+# target to generate assembly for a file
+Raytracer_Renderer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/Raytracer_Renderer.cc.s
+.PHONY : Raytracer_Renderer.cc.s
 
 geometry.o: geometry.cc.o
 .PHONY : geometry.o
 
 # target to build an object file
 geometry.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/geometry.cc.o
 .PHONY : geometry.cc.o
 
 geometry.i: geometry.cc.i
@@ -142,7 +166,7 @@ geometry.i: geometry.cc.i
 
 # target to preprocess a source file
 geometry.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/geometry.cc.i
 .PHONY : geometry.cc.i
 
 geometry.s: geometry.cc.s
@@ -150,39 +174,15 @@ geometry.s: geometry.cc.s
 
 # target to generate assembly for a file
 geometry.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/geometry.cc.s
 .PHONY : geometry.cc.s
-
-geometry_test.o: geometry_test.cc.o
-.PHONY : geometry_test.o
-
-# target to build an object file
-geometry_test.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry_test.cc.o
-.PHONY : geometry_test.cc.o
-
-geometry_test.i: geometry_test.cc.i
-.PHONY : geometry_test.i
-
-# target to preprocess a source file
-geometry_test.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry_test.cc.i
-.PHONY : geometry_test.cc.i
-
-geometry_test.s: geometry_test.cc.s
-.PHONY : geometry_test.s
-
-# target to generate assembly for a file
-geometry_test.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/geometry_test.cc.s
-.PHONY : geometry_test.cc.s
 
 math.o: math.cc.o
 .PHONY : math.o
 
 # target to build an object file
 math.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/math.cc.o
 .PHONY : math.cc.o
 
 math.i: math.cc.i
@@ -190,7 +190,7 @@ math.i: math.cc.i
 
 # target to preprocess a source file
 math.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/math.cc.i
 .PHONY : math.cc.i
 
 math.s: math.cc.s
@@ -198,39 +198,15 @@ math.s: math.cc.s
 
 # target to generate assembly for a file
 math.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/math.cc.s
 .PHONY : math.cc.s
-
-math_test.o: math_test.cc.o
-.PHONY : math_test.o
-
-# target to build an object file
-math_test.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.o
-.PHONY : math_test.cc.o
-
-math_test.i: math_test.cc.i
-.PHONY : math_test.i
-
-# target to preprocess a source file
-math_test.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.i
-.PHONY : math_test.cc.i
-
-math_test.s: math_test.cc.s
-.PHONY : math_test.s
-
-# target to generate assembly for a file
-math_test.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/math_test.cc.s
-.PHONY : math_test.cc.s
 
 raytracer.o: raytracer.cc.o
 .PHONY : raytracer.o
 
 # target to build an object file
 raytracer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/raytracer.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/raytracer.cc.o
 .PHONY : raytracer.cc.o
 
 raytracer.i: raytracer.cc.i
@@ -238,7 +214,7 @@ raytracer.i: raytracer.cc.i
 
 # target to preprocess a source file
 raytracer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/raytracer.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/raytracer.cc.i
 .PHONY : raytracer.cc.i
 
 raytracer.s: raytracer.cc.s
@@ -246,7 +222,7 @@ raytracer.s: raytracer.cc.s
 
 # target to generate assembly for a file
 raytracer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_test.dir/build.make CMakeFiles/geometry_test.dir/raytracer.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/raytracer.cc.s
 .PHONY : raytracer.cc.s
 
 # Help Target
@@ -257,19 +233,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... geometry_test"
+	@echo "... raytracer"
+	@echo "... Raytracer_Renderer.o"
+	@echo "... Raytracer_Renderer.i"
+	@echo "... Raytracer_Renderer.s"
 	@echo "... geometry.o"
 	@echo "... geometry.i"
 	@echo "... geometry.s"
-	@echo "... geometry_test.o"
-	@echo "... geometry_test.i"
-	@echo "... geometry_test.s"
 	@echo "... math.o"
 	@echo "... math.i"
 	@echo "... math.s"
-	@echo "... math_test.o"
-	@echo "... math_test.i"
-	@echo "... math_test.s"
 	@echo "... raytracer.o"
 	@echo "... raytracer.i"
 	@echo "... raytracer.s"

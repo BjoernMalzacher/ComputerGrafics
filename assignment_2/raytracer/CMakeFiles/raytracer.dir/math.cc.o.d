@@ -1,4 +1,4 @@
-CMakeFiles/geometry_test.dir/math.cc.o: \
+CMakeFiles/raytracer.dir/math.cc.o: \
  /home/malzacher/ComputerGrafics/assignment_2/raytracer/math.cc \
  /usr/include/stdc-predef.h \
  /home/malzacher/ComputerGrafics/assignment_2/raytracer/math.h \

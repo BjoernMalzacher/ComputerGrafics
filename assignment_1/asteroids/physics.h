@@ -5,7 +5,6 @@
 #include <vector>
 #include <functional>
 #include <iostream>
-
 #include "math.h"
 #include "timer.h"
 #include "geometry.h"

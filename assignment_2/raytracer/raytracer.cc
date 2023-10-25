@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "Raytracer_Renderer.h"
 
 
 // Die folgenden Kommentare beschreiben Datenstrukturen und Funktionen
@@ -12,7 +13,52 @@
 // hängen höchstens von den vorhergehenden Datenstrukturen ab, aber nicht umgekehrt.
 
 
+/*
+ if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+      fprintf(stderr, "Couldn't initialize SDL: %s\n", SDL_GetError());
+      exit(1);
+    }
 
+  
+    atexit(SDL_Quit);
+
+    SDL_Window* window = SDL_CreateWindow("Raytracer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    
+    if (window == NULL) {
+      fprintf(stderr, "Couldn't create window: %s\n", SDL_GetError());
+      exit(1);
+    }
+
+   
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == NULL) {
+      fprintf(stderr, "Couldn't create renderer: %s\n", SDL_GetError());
+      exit(1);
+    }
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    
+     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+     SDL_RenderDrawLine(renderer, 0, 0, 300, 240);
+    SDL_Event event;
+    int quit = 0;
+
+    while (!quit) {
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                quit = 1;
+            }
+        }
+        SDL_RenderPresent(renderer);
+    }
+    
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    
+
+
+*/
 // Ein "Bildschirm", der das Setzen eines Pixels kapselt
 // Der Bildschirm hat eine Auflösung (Breite x Höhe)
 // Kann zur Ausgabe einer PPM-Datei verwendet werden oder
@@ -68,10 +114,21 @@
 
 
 int main(void) {
-  if(SDL_Init(SDL_INIT_VIDEO) < 0) {
-    std::cerr << "SDL konnte nicht initialisiert werden: " << SDL_GetError() << std::endl;
-    return 1;
-  }
+  
+  Raytracer_Renderer renderer = Raytracer_Renderer(640, 480, "Raytracer");
+  renderer.init();
+  
+  
+ 
+  
+  renderer.render();
+  //renderer.exit();
+
+
+    // Bildschirm erstellen
+    // Kamera erstellen
+    // Für jede Pixelkoordinate x,y
+  
   // Bildschirm erstellen
   // Kamera erstellen
   // Für jede Pixelkoordinate x,y
