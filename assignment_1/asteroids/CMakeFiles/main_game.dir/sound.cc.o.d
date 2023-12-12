@@ -1,7 +1,7 @@
 CMakeFiles/main_game.dir/sound.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/sound.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sound.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/sound.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sound.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -221,7 +221,7 @@ CMakeFiles/main_game.dir/sound.cc.o: \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
  /usr/include/SDL2/SDL_mixer.h \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
  /usr/include/c++/11/functional /usr/include/c++/11/bits/stl_function.h \
  /usr/include/c++/11/backward/binders.h /usr/include/c++/11/tuple \
  /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \

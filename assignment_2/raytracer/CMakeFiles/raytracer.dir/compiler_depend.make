@@ -359,7 +359,71 @@ CMakeFiles/raytracer.dir/Raytracer_Renderer.cc.o: Raytracer_Renderer.cc \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/11/bits/align.h \
+  /usr/include/c++/11/bit \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/bits/shared_ptr_atomic.h \
+  /usr/include/c++/11/bits/atomic_base.h \
+  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/11/bits/atomic_wait.h \
+  /usr/include/c++/11/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/backward/auto_ptr.h \
+  /usr/include/c++/11/bits/ranges_uninitialized.h \
+  /usr/include/c++/11/bits/ranges_algobase.h \
+  /usr/include/c++/11/iterator \
+  /usr/include/c++/11/bits/stream_iterator.h \
+  /usr/include/c++/11/bits/uses_allocator_args.h \
+  /usr/include/c++/11/pstl/glue_memory_defs.h \
+  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  math.h \
+  /usr/include/c++/11/cstddef \
+  geometry.h
 
 CMakeFiles/raytracer.dir/geometry.cc.o: geometry.cc \
   /usr/include/stdc-predef.h \
@@ -1095,22 +1159,69 @@ CMakeFiles/raytracer.dir/raytracer.cc.o: raytracer.cc \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  Raytracer_Renderer.h
+  Raytracer_Renderer.h \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/11/bits/align.h \
+  /usr/include/c++/11/bit \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/bits/shared_ptr_atomic.h \
+  /usr/include/c++/11/bits/atomic_base.h \
+  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/11/bits/atomic_wait.h \
+  /usr/include/c++/11/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/backward/auto_ptr.h \
+  /usr/include/c++/11/bits/ranges_uninitialized.h \
+  /usr/include/c++/11/bits/uses_allocator_args.h \
+  /usr/include/c++/11/pstl/glue_memory_defs.h \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc
 
+
+/usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
+/usr/include/c++/11/fstream:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
 /usr/include/c++/11/unordered_map:
-
-/usr/include/c++/11/bits/refwrap.h:
-
-/usr/include/c++/11/bits/uses_allocator.h:
-
-/usr/include/c++/11/tuple:
-
-/usr/include/c++/11/bits/stream_iterator.h:
-
-/usr/include/c++/11/bits/ranges_algobase.h:
 
 /usr/include/c++/11/algorithm:
 
@@ -1120,13 +1231,71 @@ math.cc:
 
 geometry.tcc:
 
-/usr/include/c++/11/bits/stl_uninitialized.h:
+geometry.cc:
 
-/usr/include/c++/11/vector:
+/usr/include/c++/11/bits/list.tcc:
+
+/usr/include/c++/11/pstl/glue_memory_defs.h:
+
+/usr/include/c++/11/list:
+
+/usr/include/c++/11/bits/uses_allocator_args.h:
+
+/usr/include/c++/11/bits/stream_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/syscall.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/c++/11/bits/ranges_algobase.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/c++/11/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/11/bits/atomic_base.h:
+
+/usr/include/c++/11/ext/concurrence.h:
+
+/usr/include/c++/11/bits/refwrap.h:
+
+/usr/include/c++/11/bits/allocated_ptr.h:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/limits.h:
 
 /usr/include/c++/11/bits/stl_relops.h:
 
-geometry.cc:
+/usr/include/c++/11/bits/unique_ptr.h:
+
+/usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/c++/11/bit:
+
+/usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/11/memory:
+
+/usr/include/c++/11/bits/stl_uninitialized.h:
+
+/usr/include/c++/11/vector:
 
 math.tcc:
 
@@ -1174,9 +1343,15 @@ math.h:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
+/usr/include/c++/11/bits/align.h:
+
 /usr/include/c++/11/bits/max_size_type.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/c++/11/bits/basic_string.h:
 
@@ -1205,6 +1380,8 @@ geometry.h:
 /usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
@@ -1268,6 +1445,8 @@ geometry.h:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
+/usr/include/c++/11/bits/atomic_wait.h:
+
 /usr/include/SDL2/SDL_audio.h:
 
 /usr/include/c++/11/bits/stl_function.h:
@@ -1275,6 +1454,8 @@ geometry.h:
 /usr/include/c++/11/bits/memoryfwd.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/prfchwintrin.h:
+
+/usr/include/c++/11/climits:
 
 /usr/include/c++/11/new:
 
@@ -1290,9 +1471,9 @@ geometry.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
-/usr/include/c++/11/bits/stl_vector.h:
-
 /usr/include/c++/11/cstddef:
+
+/usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/SDL2/SDL_hidapi.h:
 
@@ -1303,6 +1484,8 @@ geometry.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h:
 
 /usr/include/c++/11/bits/specfun.h:
+
+/usr/include/c++/11/bits/stl_list.h:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
@@ -1315,6 +1498,8 @@ geometry.h:
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
 /usr/include/SDL2/SDL_surface.h:
+
+/usr/include/unistd.h:
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
@@ -1400,6 +1585,8 @@ Raytracer_Renderer.h:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
@@ -1456,6 +1643,8 @@ Raytracer_Renderer.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+
 /usr/include/c++/11/debug/debug.h:
 
 /usr/include/features-time64.h:
@@ -1465,6 +1654,8 @@ Raytracer_Renderer.h:
 /usr/include/SDL2/SDL_timer.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/11/cctype:
 
@@ -1483,6 +1674,8 @@ Raytracer_Renderer.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/c++/11/bits/codecvt.h:
 
 /usr/include/c++/11/bits/enable_special_members.h:
 
@@ -1519,6 +1712,8 @@ Raytracer_Renderer.h:
 /usr/include/SDL2/SDL_thread.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/11/bits/std_mutex.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
@@ -1574,6 +1769,8 @@ Raytracer_Renderer.h:
 
 /usr/include/features.h:
 
+/usr/include/c++/11/bits/shared_ptr.h:
+
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
@@ -1611,6 +1808,8 @@ Raytracer_Renderer.h:
 /usr/include/SDL2/SDL_touch.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/c++/11/bits/ranges_uninitialized.h:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1666,6 +1865,8 @@ Raytracer_Renderer.h:
 
 /usr/include/c++/11/tr1/legendre_function.tcc:
 
+/usr/include/c++/11/bits/shared_ptr_atomic.h:
+
 /usr/include/SDL2/SDL_clipboard.h:
 
 /usr/include/c++/11/tr1/poly_hermite.tcc:
@@ -1705,6 +1906,8 @@ Raytracer_Renderer.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/c++/11/string:
 
@@ -1794,6 +1997,8 @@ Raytracer_Renderer.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:
 
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512fintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512erintrin.h:
@@ -1801,6 +2006,8 @@ Raytracer_Renderer.h:
 /usr/include/SDL2/SDL_mutex.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512cdintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
 
 /usr/include/SDL2/SDL_pixels.h:
 
@@ -1844,11 +2051,15 @@ Raytracer_Renderer.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vp2intersectvlintrin.h:
 
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/fmaintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/vpclmulqdqintrin.h:
+
+/usr/include/c++/11/backward/auto_ptr.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16intrin.h:
 

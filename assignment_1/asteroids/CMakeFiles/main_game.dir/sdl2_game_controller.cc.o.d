@@ -1,7 +1,7 @@
 CMakeFiles/main_game.dir/sdl2_game_controller.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/sdl2_game_controller.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_game_controller.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/sdl2_game_controller.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_game_controller.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -220,8 +220,8 @@ CMakeFiles/main_game.dir/sdl2_game_controller.cc.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
- /home/malzacher/ComputerGrafics/asteroids/game_controller.h \
- /home/malzacher/ComputerGrafics/asteroids/game.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/game_controller.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/game.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/initializer_list /usr/include/c++/11/bits/stl_heap.h \
@@ -287,7 +287,7 @@ CMakeFiles/main_game.dir/sdl2_game_controller.cc.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
  /usr/include/c++/11/functional /usr/include/c++/11/tuple \
  /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h /usr/include/c++/11/bits/refwrap.h \
@@ -300,7 +300,7 @@ CMakeFiles/main_game.dir/sdl2_game_controller.cc.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
- /home/malzacher/ComputerGrafics/asteroids/physics.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -323,8 +323,8 @@ CMakeFiles/main_game.dir/sdl2_game_controller.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/cstddef \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
- /home/malzacher/ComputerGrafics/asteroids/sound.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sound.h \
  /usr/include/SDL2/SDL_mixer.h /usr/include/c++/11/span

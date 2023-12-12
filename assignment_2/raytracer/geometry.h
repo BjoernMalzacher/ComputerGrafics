@@ -83,7 +83,7 @@ protected:
   FLOAT radius;
 public:
   Sphere(Vector<FLOAT,N> center, FLOAT radius);
-  
+ 
   // returns true iff the given ray intersects this sphere
   // context.intersection is set to the intersection point,
   // context.normal is set to the intersection normal facing away from the surface
@@ -102,6 +102,10 @@ public:
   // returns true iff the given point is inside this Sphere or on its surface
   
   bool inside(const Vector<FLOAT, N> p) const;
+  
+  Vector<FLOAT,N> getCenter() const {
+    return center;
+  }
   
 };
 

@@ -1,8 +1,8 @@
 CMakeFiles/game_test.dir/geometry.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/geometry.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/initializer_list \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -186,4 +186,4 @@ CMakeFiles/game_test.dir/geometry.cc.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/malzacher/ComputerGrafics/asteroids/geometry.tcc
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.tcc

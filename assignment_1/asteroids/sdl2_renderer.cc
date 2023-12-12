@@ -86,19 +86,23 @@ void SDL2Renderer::render(Asteroid * asteroid) {
   //{{-10,-10},{10,-10},{10,10},{-10,10}};
  
  {
-    { 0, -12}, {16, -24}, {32, -12}, {24, 0}, {32, 12}, {8, 24}, {-16, 24}, {-32, 12}, {-32, -12}, {-16, -24}, {0, -12}
+  {-10,-10},{10,-10},{10,10},{-10,10}
+    //{ 0, -12}, {16, -24}, {32, -12}, {24, 0}, {32, 12}, {8, 24}, {-16, 24}, {-32, 12}, {-32, -12}, {-16, -24}, {0, -12}
   };   
   static SDL_Point asteroids_points2[] = 
   {
-    { 16, -6}, {32, -12}, {16, -24}, {0, -16}, {-16, -24}, {-24, -12}, {-16, -0}, {-32, 12}, {-16, 24}, {-8, 16}, {16, 24}, {32, 6}, {16, -6}
+    {-10,-10},{10,-10},{10,10},{-10,10}
+    //{ 16, -6}, {32, -12}, {16, -24}, {0, -16}, {-16, -24}, {-24, -12}, {-16, -0}, {-32, 12}, {-16, 24}, {-8, 16}, {16, 24}, {32, 6}, {16, -6}
   }; 
   static SDL_Point asteroids_points3[] = 
   {
-    {-16, 0}, {-32, 6}, {-16, 24}, {0, 6}, {0, 24}, {16, 24}, {32, 6}, {32, 6}, {16, -24}, {-8, -24}, {-32, -6}, {-16, 0}
+    {-10,-10},{10,-10},{10,10},{-10,10}
+    //{-16, 0}, {-32, 6}, {-16, 24}, {0, 6}, {0, 24}, {16, 24}, {32, 6}, {32, 6}, {16, -24}, {-8, -24}, {-32, -6}, {-16, 0}
   };
   static SDL_Point asteroids_points4[] = 
   {  
-    {8,0}, {32,-6}, {32, -12}, {8, -24}, {-16, -24}, {-8, -12}, {-32, -12}, {-32, 12}, {-16, 24}, {8, 16}, {16, 24}, {32, 12}, {8, 0}
+    {-10,-10},{10,-10},{10,10},{-10,10}
+    //{8,0}, {32,-6}, {32, -12}, {8, -24}, {-16, -24}, {-8, -12}, {-32, -12}, {-32, 12}, {-16, 24}, {8, 16}, {16, 24}, {32, 12}, {8, 0}
   };
   static size_t sizes[] = {std::span{asteroids_points1}.size(),
                            std::span{asteroids_points2}.size(),
@@ -217,7 +221,7 @@ void SDL2Renderer::renderScore() {
       points[i].y = y +  4 * (digits[d] + i)->y;
     }
     x -= 20;
-    SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0xFF, 0xFF );
+    SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0x00, 0x00 );
     SDL_RenderDrawLines(renderer, points.data(), size );
    SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
     no_of_digits--;
@@ -247,7 +251,7 @@ bool SDL2Renderer::init() {
 void SDL2Renderer::render() {
   SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0xFF );
   SDL_RenderClear( renderer );
-  SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
+  SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0x00, 0xFF );
   
   for (Body2df * body : game.get_physics().get_bodies() ) {
     TypedBody * typed_body = static_cast<TypedBody *>(body);

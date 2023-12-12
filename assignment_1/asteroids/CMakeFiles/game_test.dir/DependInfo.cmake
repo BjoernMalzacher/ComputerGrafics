@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/malzacher/ComputerGrafics/asteroids/game.cc" "CMakeFiles/game_test.dir/game.cc.o" "gcc" "CMakeFiles/game_test.dir/game.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/game_test.cc" "CMakeFiles/game_test.dir/game_test.cc.o" "gcc" "CMakeFiles/game_test.dir/game_test.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/geometry.cc" "CMakeFiles/game_test.dir/geometry.cc.o" "gcc" "CMakeFiles/game_test.dir/geometry.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/math.cc" "CMakeFiles/game_test.dir/math.cc.o" "gcc" "CMakeFiles/game_test.dir/math.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/physics.cc" "CMakeFiles/game_test.dir/physics.cc.o" "gcc" "CMakeFiles/game_test.dir/physics.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/timer.cc" "CMakeFiles/game_test.dir/timer.cc.o" "gcc" "CMakeFiles/game_test.dir/timer.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/game.cc" "CMakeFiles/game_test.dir/game.cc.o" "gcc" "CMakeFiles/game_test.dir/game.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/game_test.cc" "CMakeFiles/game_test.dir/game_test.cc.o" "gcc" "CMakeFiles/game_test.dir/game_test.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc" "CMakeFiles/game_test.dir/geometry.cc.o" "gcc" "CMakeFiles/game_test.dir/geometry.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc" "CMakeFiles/game_test.dir/math.cc.o" "gcc" "CMakeFiles/game_test.dir/math.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc" "CMakeFiles/game_test.dir/physics.cc.o" "gcc" "CMakeFiles/game_test.dir/physics.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc" "CMakeFiles/game_test.dir/timer.cc.o" "gcc" "CMakeFiles/game_test.dir/timer.cc.o.d"
   )
 
 # Targets to which this target links.

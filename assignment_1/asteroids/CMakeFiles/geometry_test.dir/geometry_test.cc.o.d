@@ -1,8 +1,8 @@
 CMakeFiles/geometry_test.dir/geometry_test.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/geometry_test.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry_test.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/initializer_list \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

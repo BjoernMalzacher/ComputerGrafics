@@ -1,7 +1,7 @@
 CMakeFiles/physics_test.dir/physics.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/physics.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/physics.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.h \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -196,9 +196,9 @@ CMakeFiles/physics_test.dir/physics.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/cstddef \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -313,5 +313,5 @@ CMakeFiles/physics_test.dir/physics.cc.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
- /home/malzacher/ComputerGrafics/asteroids/physics.tcc
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.tcc

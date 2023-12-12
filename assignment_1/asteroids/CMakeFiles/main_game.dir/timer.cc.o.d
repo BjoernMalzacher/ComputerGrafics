@@ -1,7 +1,7 @@
 CMakeFiles/main_game.dir/timer.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/timer.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
  /usr/include/c++/11/functional \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

@@ -1,7 +1,7 @@
 CMakeFiles/main_game.dir/sdl2_renderer.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/sdl2_renderer.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_renderer.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/sdl2_renderer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_renderer.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -294,7 +294,7 @@ CMakeFiles/main_game.dir/sdl2_renderer.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/malzacher/ComputerGrafics/asteroids/physics.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
@@ -312,16 +312,16 @@ CMakeFiles/main_game.dir/sdl2_renderer.cc.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/cstddef \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
- /home/malzacher/ComputerGrafics/asteroids/game.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/game.h \
  /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/malzacher/ComputerGrafics/asteroids/renderer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/renderer.h \
  /usr/include/c++/11/span

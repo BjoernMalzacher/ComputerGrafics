@@ -1,7 +1,7 @@
 CMakeFiles/math_test.dir/math_test.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/math_test.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math_test.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/initializer_list \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

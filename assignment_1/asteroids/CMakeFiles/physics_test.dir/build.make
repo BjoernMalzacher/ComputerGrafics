@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/malzacher/ComputerGrafics/asteroids
+CMAKE_SOURCE_DIR = /home/malzacher/ComputerGrafics/assignment_1/asteroids
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/malzacher/ComputerGrafics/asteroids
+CMAKE_BINARY_DIR = /home/malzacher/ComputerGrafics/assignment_1/asteroids
 
 # Include any dependencies generated for this target.
 include CMakeFiles/physics_test.dir/depend.make
@@ -72,72 +72,72 @@ include CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/physics_test.cc.o: CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/physics_test.cc.o: physics_test.cc
 CMakeFiles/physics_test.dir/physics_test.cc.o: CMakeFiles/physics_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/physics_test.dir/physics_test.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/physics_test.cc.o -MF CMakeFiles/physics_test.dir/physics_test.cc.o.d -o CMakeFiles/physics_test.dir/physics_test.cc.o -c /home/malzacher/ComputerGrafics/asteroids/physics_test.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/physics_test.dir/physics_test.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/physics_test.cc.o -MF CMakeFiles/physics_test.dir/physics_test.cc.o.d -o CMakeFiles/physics_test.dir/physics_test.cc.o -c /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics_test.cc
 
 CMakeFiles/physics_test.dir/physics_test.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/physics_test.dir/physics_test.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/asteroids/physics_test.cc > CMakeFiles/physics_test.dir/physics_test.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics_test.cc > CMakeFiles/physics_test.dir/physics_test.cc.i
 
 CMakeFiles/physics_test.dir/physics_test.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/physics_test.dir/physics_test.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/asteroids/physics_test.cc -o CMakeFiles/physics_test.dir/physics_test.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics_test.cc -o CMakeFiles/physics_test.dir/physics_test.cc.s
 
 CMakeFiles/physics_test.dir/physics.cc.o: CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/physics.cc.o: physics.cc
 CMakeFiles/physics_test.dir/physics.cc.o: CMakeFiles/physics_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/physics_test.dir/physics.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/physics.cc.o -MF CMakeFiles/physics_test.dir/physics.cc.o.d -o CMakeFiles/physics_test.dir/physics.cc.o -c /home/malzacher/ComputerGrafics/asteroids/physics.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/physics_test.dir/physics.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/physics.cc.o -MF CMakeFiles/physics_test.dir/physics.cc.o.d -o CMakeFiles/physics_test.dir/physics.cc.o -c /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc
 
 CMakeFiles/physics_test.dir/physics.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/physics_test.dir/physics.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/asteroids/physics.cc > CMakeFiles/physics_test.dir/physics.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc > CMakeFiles/physics_test.dir/physics.cc.i
 
 CMakeFiles/physics_test.dir/physics.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/physics_test.dir/physics.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/asteroids/physics.cc -o CMakeFiles/physics_test.dir/physics.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc -o CMakeFiles/physics_test.dir/physics.cc.s
 
 CMakeFiles/physics_test.dir/geometry.cc.o: CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/geometry.cc.o: geometry.cc
 CMakeFiles/physics_test.dir/geometry.cc.o: CMakeFiles/physics_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/physics_test.dir/geometry.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/geometry.cc.o -MF CMakeFiles/physics_test.dir/geometry.cc.o.d -o CMakeFiles/physics_test.dir/geometry.cc.o -c /home/malzacher/ComputerGrafics/asteroids/geometry.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/physics_test.dir/geometry.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/geometry.cc.o -MF CMakeFiles/physics_test.dir/geometry.cc.o.d -o CMakeFiles/physics_test.dir/geometry.cc.o -c /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc
 
 CMakeFiles/physics_test.dir/geometry.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/physics_test.dir/geometry.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/asteroids/geometry.cc > CMakeFiles/physics_test.dir/geometry.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc > CMakeFiles/physics_test.dir/geometry.cc.i
 
 CMakeFiles/physics_test.dir/geometry.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/physics_test.dir/geometry.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/asteroids/geometry.cc -o CMakeFiles/physics_test.dir/geometry.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc -o CMakeFiles/physics_test.dir/geometry.cc.s
 
 CMakeFiles/physics_test.dir/math.cc.o: CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/math.cc.o: math.cc
 CMakeFiles/physics_test.dir/math.cc.o: CMakeFiles/physics_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/physics_test.dir/math.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/math.cc.o -MF CMakeFiles/physics_test.dir/math.cc.o.d -o CMakeFiles/physics_test.dir/math.cc.o -c /home/malzacher/ComputerGrafics/asteroids/math.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/physics_test.dir/math.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/math.cc.o -MF CMakeFiles/physics_test.dir/math.cc.o.d -o CMakeFiles/physics_test.dir/math.cc.o -c /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc
 
 CMakeFiles/physics_test.dir/math.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/physics_test.dir/math.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/asteroids/math.cc > CMakeFiles/physics_test.dir/math.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc > CMakeFiles/physics_test.dir/math.cc.i
 
 CMakeFiles/physics_test.dir/math.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/physics_test.dir/math.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/asteroids/math.cc -o CMakeFiles/physics_test.dir/math.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc -o CMakeFiles/physics_test.dir/math.cc.s
 
 CMakeFiles/physics_test.dir/timer.cc.o: CMakeFiles/physics_test.dir/flags.make
 CMakeFiles/physics_test.dir/timer.cc.o: timer.cc
 CMakeFiles/physics_test.dir/timer.cc.o: CMakeFiles/physics_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/physics_test.dir/timer.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/timer.cc.o -MF CMakeFiles/physics_test.dir/timer.cc.o.d -o CMakeFiles/physics_test.dir/timer.cc.o -c /home/malzacher/ComputerGrafics/asteroids/timer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/physics_test.dir/timer.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/physics_test.dir/timer.cc.o -MF CMakeFiles/physics_test.dir/timer.cc.o.d -o CMakeFiles/physics_test.dir/timer.cc.o -c /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc
 
 CMakeFiles/physics_test.dir/timer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/physics_test.dir/timer.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/asteroids/timer.cc > CMakeFiles/physics_test.dir/timer.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc > CMakeFiles/physics_test.dir/timer.cc.i
 
 CMakeFiles/physics_test.dir/timer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/physics_test.dir/timer.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/asteroids/timer.cc -o CMakeFiles/physics_test.dir/timer.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc -o CMakeFiles/physics_test.dir/timer.cc.s
 
 # Object files for target physics_test
 physics_test_OBJECTS = \
@@ -157,7 +157,7 @@ physics_test: CMakeFiles/physics_test.dir/math.cc.o
 physics_test: CMakeFiles/physics_test.dir/timer.cc.o
 physics_test: CMakeFiles/physics_test.dir/build.make
 physics_test: CMakeFiles/physics_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/malzacher/ComputerGrafics/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable physics_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable physics_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/physics_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,6 +169,6 @@ CMakeFiles/physics_test.dir/clean:
 .PHONY : CMakeFiles/physics_test.dir/clean
 
 CMakeFiles/physics_test.dir/depend:
-	cd /home/malzacher/ComputerGrafics/asteroids && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/malzacher/ComputerGrafics/asteroids /home/malzacher/ComputerGrafics/asteroids /home/malzacher/ComputerGrafics/asteroids /home/malzacher/ComputerGrafics/asteroids /home/malzacher/ComputerGrafics/asteroids/CMakeFiles/physics_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/malzacher/ComputerGrafics/assignment_1/asteroids && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/malzacher/ComputerGrafics/assignment_1/asteroids /home/malzacher/ComputerGrafics/assignment_1/asteroids /home/malzacher/ComputerGrafics/assignment_1/asteroids /home/malzacher/ComputerGrafics/assignment_1/asteroids /home/malzacher/ComputerGrafics/assignment_1/asteroids/CMakeFiles/physics_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/physics_test.dir/depend
 

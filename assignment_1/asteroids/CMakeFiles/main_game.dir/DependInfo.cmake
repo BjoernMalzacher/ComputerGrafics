@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/malzacher/ComputerGrafics/asteroids/game.cc" "CMakeFiles/main_game.dir/game.cc.o" "gcc" "CMakeFiles/main_game.dir/game.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/geometry.cc" "CMakeFiles/main_game.dir/geometry.cc.o" "gcc" "CMakeFiles/main_game.dir/geometry.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/main_game.cc" "CMakeFiles/main_game.dir/main_game.cc.o" "gcc" "CMakeFiles/main_game.dir/main_game.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/math.cc" "CMakeFiles/main_game.dir/math.cc.o" "gcc" "CMakeFiles/main_game.dir/math.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/physics.cc" "CMakeFiles/main_game.dir/physics.cc.o" "gcc" "CMakeFiles/main_game.dir/physics.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/sdl2_game_controller.cc" "CMakeFiles/main_game.dir/sdl2_game_controller.cc.o" "gcc" "CMakeFiles/main_game.dir/sdl2_game_controller.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/sdl2_renderer.cc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o" "gcc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/sound.cc" "CMakeFiles/main_game.dir/sound.cc.o" "gcc" "CMakeFiles/main_game.dir/sound.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/timer.cc" "CMakeFiles/main_game.dir/timer.cc.o" "gcc" "CMakeFiles/main_game.dir/timer.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/game.cc" "CMakeFiles/main_game.dir/game.cc.o" "gcc" "CMakeFiles/main_game.dir/game.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.cc" "CMakeFiles/main_game.dir/geometry.cc.o" "gcc" "CMakeFiles/main_game.dir/geometry.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/main_game.cc" "CMakeFiles/main_game.dir/main_game.cc.o" "gcc" "CMakeFiles/main_game.dir/main_game.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc" "CMakeFiles/main_game.dir/math.cc.o" "gcc" "CMakeFiles/main_game.dir/math.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.cc" "CMakeFiles/main_game.dir/physics.cc.o" "gcc" "CMakeFiles/main_game.dir/physics.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_game_controller.cc" "CMakeFiles/main_game.dir/sdl2_game_controller.cc.o" "gcc" "CMakeFiles/main_game.dir/sdl2_game_controller.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/sdl2_renderer.cc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o" "gcc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/sound.cc" "CMakeFiles/main_game.dir/sound.cc.o" "gcc" "CMakeFiles/main_game.dir/sound.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.cc" "CMakeFiles/main_game.dir/timer.cc.o" "gcc" "CMakeFiles/main_game.dir/timer.cc.o.d"
   )
 
 # Targets to which this target links.

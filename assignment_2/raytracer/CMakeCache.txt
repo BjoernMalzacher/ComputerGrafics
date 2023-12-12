@@ -209,9 +209,6 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//The directory containing a CMake configuration file for SDL2.
-SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
-
 //Value Computed by CMake
 geometry_BINARY_DIR:STATIC=/home/malzacher/ComputerGrafics/assignment_2/raytracer
 

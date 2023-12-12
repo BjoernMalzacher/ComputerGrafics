@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/malzacher/ComputerGrafics/asteroids/math.cc" "CMakeFiles/math_test.dir/math.cc.o" "gcc" "CMakeFiles/math_test.dir/math.cc.o.d"
-  "/home/malzacher/ComputerGrafics/asteroids/math_test.cc" "CMakeFiles/math_test.dir/math_test.cc.o" "gcc" "CMakeFiles/math_test.dir/math_test.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/math.cc" "CMakeFiles/math_test.dir/math.cc.o" "gcc" "CMakeFiles/math_test.dir/math.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_1/asteroids/math_test.cc" "CMakeFiles/math_test.dir/math_test.cc.o" "gcc" "CMakeFiles/math_test.dir/math_test.cc.o.d"
   )
 
 # Targets to which this target links.

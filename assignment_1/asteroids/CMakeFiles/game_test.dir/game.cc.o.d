@@ -1,7 +1,7 @@
 CMakeFiles/game_test.dir/game.cc.o: \
- /home/malzacher/ComputerGrafics/asteroids/game.cc \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/game.cc \
  /usr/include/stdc-predef.h \
- /home/malzacher/ComputerGrafics/asteroids/game.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/game.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -173,7 +173,7 @@ CMakeFiles/game_test.dir/game.cc.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/malzacher/ComputerGrafics/asteroids/timer.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/timer.h \
  /usr/include/c++/11/functional /usr/include/c++/11/tuple \
  /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h /usr/include/c++/11/bits/refwrap.h \
@@ -300,7 +300,7 @@ CMakeFiles/game_test.dir/game.cc.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
- /home/malzacher/ComputerGrafics/asteroids/physics.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/physics.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -323,9 +323,9 @@ CMakeFiles/game_test.dir/game.cc.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/malzacher/ComputerGrafics/asteroids/math.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/math.h \
  /usr/include/c++/11/cstddef \
- /home/malzacher/ComputerGrafics/asteroids/geometry.h \
+ /home/malzacher/ComputerGrafics/assignment_1/asteroids/geometry.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/ranges_algo.h \
  /usr/include/c++/11/bits/ranges_algobase.h /usr/include/c++/11/iterator \
  /usr/include/c++/11/bits/stream_iterator.h \
