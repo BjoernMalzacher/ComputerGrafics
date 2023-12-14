@@ -31,6 +31,9 @@ class Color{
   friend Color operator*(const float factor, Color color)  {
     return Color(factor * color.r, factor * color.g, factor * color.b);
   }
+  Color operator/(float factor) const {
+    return Color(r / factor, g / factor, b / factor);
+  }
 };
 class Screen{
     private:
@@ -129,12 +132,12 @@ public:
      void  addSphere(Sphere3df sphere, Material material);
     void addLight(Light light);
     void addAABB(AxisAlignedBoundingBox<float, 3u> aabb, Material material);
-    std::vector<std::pair<AABB3df, Material>> getAABBs();
     std::vector<std::pair<Sphere3df, Material>> getSpheres();
     std::vector<Light> getLights();
-    HitContext* nearestObject(Ray3df & ray);
+    HitContext* nearestSphere(Ray3df & ray);
     std::vector<Light> findlights(HitContext &hit);
     Color lambert(int n, std::vector<Light> &lights, HitContext & con);
+
 
 };
     class Raytracer_Renderer {

@@ -75,50 +75,19 @@ void raytrace(Camera &camera, Screen &screen, Scene &scene)
     {
         for (int x = 0; x < screen.getWidth(); x++)
         {
-            color = Color(0.0, 0.0, 0.0);
-            float cx = (2.0 * x) / screen.getWidth() - 1.0;
-            float cy = (2.0 * y) / screen.getHeight() - 1.0;
+           
+            float cx = (2.0f * x) / screen.getWidth() - 1.0;
+            float cy = (2.0f * y) / screen.getHeight() - 1.0;
             Ray3df ray = camera.makeRay(cx,cy);
-            Sphere3df *nearestSphere = nullptr;
-            float t = INFINITY;
-            HitContext* con = scene.nearestObject(ray);
+           // float t = INFINITY;
+            HitContext* con = scene.nearestSphere(ray);  
             if(con->hit)
             {
-                std::vector<Light> lights = scene.findlights(*con);
+             std::vector<Light> lights = scene.findlights(*con);
                 int n = scene.getLights().size();
-                for (const auto& light : lights)
-            {
-                // Create a shadow ray from the hit point towards the light
-                Vector3df toLight = light.getPosition() - con->intersection;
-                toLight.normalize();
-                Vector3df offsetOrigin = (con->intersection +((float)0.001)*(con->normal));
-                Ray3df shadowRay(offsetOrigin, toLight);
+                color = scene.lambert(n, lights, *con);
+            }
 
-                // Check if the shadow ray intersects any object
-                HitContext* shadowCon = scene.nearestObject(shadowRay);
-                if (shadowCon->hit && shadowCon->t < toLight.length())
-                {
-                    // The hit point is in shadow, so continue to the next light
-                    continue;
-                }
-
-                // The hit point is not in shadow, so add the contribution of this light
-                color = color + scene.lambert(n, lights, *con);
-            }
-            
-            }
-            else{
-              for (size_t i = 0; i < scene.getAABBs().size(); i++)
-              {
-                AABB3df aabb = scene.getAABBs()[i].first;
-                Material material = scene.getAABBs()[i].second;
-                if(aabb.intersects(ray))
-                {
-                  color = material.getColor();
-                }
-              }
-               
-            }
             screen.setPixel(x, y, color);
             delete con;
         }
@@ -200,35 +169,29 @@ void write_bmp(std::ostream & out,  Screen & screen) {
 }
 int main(void){
     Scene scene;
-     scene.addLight(Light({0.0, 2.0, 0.0}, Color(1.0, 1.0, 1.0)));
-    int height = 3000;
-    int width = 3000;
-    
-    scene.addAABB(AABB3df({0.0, 0.0, -2.0}, {2.0, 2.0, 0.1}), Material(Color(1.0, 0.0, 0.0), 0.1, 0.9, 0.9, 10.0));
-   
-   scene.addAABB(AABB3df({0.0, 0.0, 2.0}, {2.0, 2.0, 0.1}), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0));
-
-  
-    scene.addAABB(AABB3df({2.0, 0.0, 0.0}, {0.1, 2.0, 2.0}), Material(Color(0.0, 1.0, 0.0), 0.1, 0.9, 0.9, 10.0));
-
+    scene.addLight(Light({0.0f, 0.0f, 0.0f}, Color(1.0, 1.0, 1.0)));
+    scene.addLight(Light({0.0f, 1.5f, 0.0f}, Color(1.0, 1.0, 1.0)));
+    int height = 2000;
+    int width = 2000;
+    scene.addSphere(Sphere3df({0.0f, 0.0f, -10002.0f},10000.0f), Material(Color(0.3, 0.5, 0.0), 0.1, 0.9, 0.9, 10.0));
+    scene.addSphere(Sphere3df({0.0f, 0.0f, 10002.0f},10000.0f), Material(Color(0.8, 0.3, 0.2), 0.1, 0.9, 0.9, 10.0));
+    scene.addSphere(Sphere3df({10002.0f, 0.0f, 0.0f},10000.0), Material(Color(0.3, 1.0, 0.2), 0.1, 0.9, 0.9, 10.0));
+    scene.addSphere(Sphere3df({0.0f, -10002.0f, 0.0f},10000.0f), Material(Color(0.3, 0.5, 1.0), 0.1, 0.9, 0.9, 10.0));
+    scene.addSphere(Sphere3df({0.0f,10002.0f, 0.0f},10000.0f), Material(Color(1.0, 0.0, 0.0), 0.1, 0.9, 0.9, 10.0));
  
-    scene.addAABB(AABB3df({0.0, -2.0, 0.0}, {2.0 ,0.1, 2.0}), Material(Color(1.0, 1.0, 0.0), 0.1, 0.9, 0.9, 10.0));
-
+    scene.addSphere(Sphere3df({-0.4, -0.5, -0.5}, 0.3), Material(Color(0.0, 0.0, 1.0), 1.0, 0.9, 0.9, 10.0));
+    scene.addSphere(Sphere3df({0.4, 0.5, 0.5}, 0.2), Material(Color(0.0, 0.0, 1.0), 1.0, 0.9, 0.9, 10.0));
+    //scene.addSphere(Sphere3df({0.0, 0.0, 0.0}, 0.2), Material(Color(0.5, 0.8, 0.0), 0.1, 0.9, 0.9, 10.0));
     
-    scene.addAABB(AABB3df({0.0, 2.0, 0.0}, {2.0, 0.1, 2.0}), Material(Color(1.0, 1.0, 0.0), 0.1, 0.9, 0.9, 10.0));
-
-    scene.addSphere(Sphere3df({-0.4, -0.5, -0.5}, 0.5), Material(Color(0.5, 0.5, 1.0), 0.1, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({0.4, 0.5, 0.5}, 0.5), Material(Color(0.5, 0.8, 0.0), 0.1, 0.9, 0.9, 10.0));
    
     Screen screen = Screen(width, height);
-    Camera camera = Camera({-2.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 0.0},PI/4, (float)width / (float)height);
-    Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
+    Camera camera = Camera({-2.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f}, {0.0, 0.0, 0.0},PI/4, (float)width / (float)height);
+    //Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
     //renderer.init();
     
     raytrace(camera, screen, scene);
     //renderer.render(&screen);
-     std::ofstream output("test.bmp", std::ofstream::binary); // for windows
-  
+     std::ofstream output("test.bmp", std::ofstream::binary); 
     write_bmp(output,screen);
     std::cout << "finished" << std::endl;
     output.close();

@@ -164,10 +164,6 @@ void Scene::setAABB(AABB3df aabb, Material material)
 {
     aabbs.push_back(std::pair<AABB3df, Material>(aabb, material));
 }
-std::vector<std::pair<AABB3df, Material>> Scene::getAABBs()
-{
-    return this->aabbs;
-}
 std::vector<std::pair<Sphere3df, Material>> Scene::getSpheres()
 {
     return this->spheres;
@@ -177,7 +173,7 @@ void Scene::addAABB(AABB3df aabb, Material material)
     this->aabbs.push_back(std::pair<AABB3df, Material>(aabb, material));
 }
 
-HitContext *Scene::nearestObject(Ray3df &ray )
+HitContext *Scene::nearestSphere(Ray3df &ray )
 {
     float tmin = INFINITY;
     HitContext *hitContext = new HitContext();
@@ -185,10 +181,9 @@ HitContext *Scene::nearestObject(Ray3df &ray )
     for (long unsigned int i = 0; i < spheres.size(); i++)
     {
       
-        if (spheres[i].first.intersects(ray, context))
+        if (spheres[i].first.intersects(ray, context)&& context.t < tmin )
             {
-            if (context.t < tmin)
-            {
+            
                 
                 hitContext->hit = true;
                 hitContext->t = context.t;
@@ -199,23 +194,20 @@ HitContext *Scene::nearestObject(Ray3df &ray )
                 hitContext->m = spheres[i].second;
                 tmin = context.t;
             }
-        }
-    }
-    
-    if(tmin == INFINITY){
-        hitContext->hit = false;
-        return hitContext;
     }
     return hitContext;
 }
+
+    
 std::vector<Light> Scene::findlights(HitContext &hit)
 {
     std::vector<Light> vis_lights;
     for(Light light : lights)
     {
-        Ray3df shadowRay = {hit.intersection, light.getPosition() - hit.intersection};
-        HitContext *shadowHitContext = nearestObject(shadowRay);
-        if(shadowHitContext->hit){
+        Vector3df offset =0.0001f* hit.normal; // Adjust the magnitude of the offset as needed
+        Ray3df shadowRay = {hit.intersection + offset, light.getPosition() - hit.intersection};
+        HitContext *shadowHitContext = nearestSphere(shadowRay);
+        if(shadowHitContext->hit && shadowHitContext->t >= 1.0f){
             vis_lights.push_back(light);
         }
         delete shadowHitContext;
@@ -224,14 +216,14 @@ std::vector<Light> Scene::findlights(HitContext &hit)
 }
  Color Scene::lambert(int n, std::vector<Light> &vis_lights, HitContext &con)
     {
-        Color color = con.m.getColor() * con.m.getAmbient() * con.m.getDiffuse();
+        Color color = con.m.getColor() * con.m.getAmbient() ;
         for (Light light : vis_lights)
         {
             Vector3df lightDir = light.getPosition() - con.intersection;
             lightDir.normalize();
             float lambert = std::max(0.0f, con.normal * lightDir);
-            color = (con.m.getDiffuse()* lambert) * light.getColor()* con.m.getColor();
+            color = color + ( lambert) * light.getColor() * con.m.getColor();
         }
-        return color;
+        return (con.m.getDiffuse()* color)/n;
 }
 // -- Scene end --
