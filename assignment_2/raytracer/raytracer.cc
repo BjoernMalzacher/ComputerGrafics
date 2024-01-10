@@ -66,32 +66,48 @@
 // Eine "Kamera", die von einem Augenpunkt aus in eine Richtung senkrecht auf ein Rechteck (das Bild) zeigt.
 // Für das Rechteck muss die Auflösung oder alternativ die Pixelbreite und -höhe bekannt sein.
 // Für ein Pixel mit Bildkoordinate kann ein Sehstrahl erzeugt werden.
+Color trace(Ray3df &ray, Scene &scene, int depth)
+{
+  if (depth <= 0)
+    return Color();  
+  HitContext *con = scene.nearestSphere(ray);
+  if (con == nullptr)
+    return Color();  
+  std::vector<Light> lights = scene.findlights(*con);
+  Color color = scene.lambert(lights.size(), lights, *con);
 
+  // Handle reflections
+  float reflectivity = con->m.getReflection();
+  if (reflectivity > 0.0f)
+  {
+    Vector3df reflectionDir = ray.direction.get_reflective(con->normal);
+    Ray3df reflectionRay(con->intersection+ (0.0001f * reflectionDir), reflectionDir);
+    Color reflectionColor = trace(reflectionRay, scene, depth - 1);
+    color = (1.0f - reflectivity) * color + reflectivity * reflectionColor;
+  }
 
+  return color;
+}
 void raytrace(Camera &camera, Screen &screen, Scene &scene)
 {
-    Color color;
-    for (int y = 0; y < screen.getHeight(); y++)
-    {
-        for (int x = 0; x < screen.getWidth(); x++)
-        {
-           
-            float cx = (2.0f * x) / screen.getWidth() - 1.0;
-            float cy = (2.0f * y) / screen.getHeight() - 1.0;
-            Ray3df ray = camera.makeRay(cx,cy);
-           // float t = INFINITY;
-            HitContext* con = scene.nearestSphere(ray);  
-            if(con->hit)
-            {
-             std::vector<Light> lights = scene.findlights(*con);
-                int n = scene.getLights().size();
-                color = scene.lambert(n, lights, *con);
-            }
+  int width = screen.getWidth();
+  int height = screen.getHeight();
 
-            screen.setPixel(x, y, color);
-            delete con;
-        }
+  for (int y = 0; y < height; y++)
+  {
+    for (int x = 0; x < width; x++)
+    {
+      Color color = Color();
+      float u = (2.0f * (x + (0.5)) / width) - 1.0f;
+      float v = (2.0f * (y + (0.5)) / height) - 1.0f;
+      // Create the ray
+      Ray3df ray = camera.makeRay(u, v);
+  
+      color = trace(ray,scene,10) ;// Adjust depth as needed
+
+      screen.setPixel(x, y, color);
     }
+  }
 }
 // Für die "Farbe" benötigt man nicht unbedingt eine eigene Datenstruktur.
 // Sie kann als Vector3df implementiert werden mit Farbanteil von 0 bis 1.
@@ -129,84 +145,122 @@ void raytrace(Camera &camera, Screen &screen, Scene &scene)
 
 // Die rekursive raytracing-Methode. Am besten ab einer bestimmten Rekursionstiefe (z.B. als Parameter übergeben) abbrechen.
 
-
-void write_bmp(std::ostream & out,  Screen & screen) {
+void write_bmp(std::ostream &out, Screen &screen)
+{
   unsigned long long size_of_bitmap_data = screen.getWidth() * screen.getHeight() * 4;
-  out.put(0x42); out.put(0x4D); // "BM"
-  out.put(0x00); out.put(0x00); out.put(0x00); out.put(0x00); // size of bmp file
-  out.put(0x00); out.put(0x00);
-  out.put(0x00); out.put(0x00);
-  out.put(0x36); out.put(0x00);out.put(0x00); out.put(0x00); // offset to start of pixel array
+  out.put(0x42);
+  out.put(0x4D); // "BM"
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // size of bmp file
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x36);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // offset to start of pixel array
   // Header
-  out.put(0x28); out.put(0x00); out.put(0x00); out.put(0x00);  // 40 bytes Number of bytes in the DIB header (from this point)
-  out.put( screen.getWidth() & 0xFF ); out.put( screen.getWidth() >> 8 & 0xFF );
-  out.put(0x00); out.put(0x00); // width in pixel
-  out.put( screen.getHeight() & 0xFF ); out.put( screen.getHeight() >> 8 & 0xFF );
-  out.put(0x00); out.put(0x00); // height in pixel
-  out.put(0x01); out.put(0x00); // 1 = number of color planes used
-  out.put(0x18); out.put(0x00); // 24 bits per pixel (RGB)
-  out.put(0x00); out.put(0x00); out.put(0x00); out.put(0x00); // 0 = no compression
+  out.put(0x28);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // 40 bytes Number of bytes in the DIB header (from this point)
+  out.put(screen.getWidth() & 0xFF);
+  out.put(screen.getWidth() >> 8 & 0xFF);
+  out.put(0x00);
+  out.put(0x00); // width in pixel
+  out.put(screen.getHeight() & 0xFF);
+  out.put(screen.getHeight() >> 8 & 0xFF);
+  out.put(0x00);
+  out.put(0x00); // height in pixel
+  out.put(0x01);
+  out.put(0x00); // 1 = number of color planes used
+  out.put(0x18);
+  out.put(0x00); // 24 bits per pixel (RGB)
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // 0 = no compression
   // size of raw bitmap data 16 bytes
-  out.put(size_of_bitmap_data & 0xFF); 
-  out.put(size_of_bitmap_data >> 8 & 0xFF); 
-  out.put(size_of_bitmap_data >> 16 & 0xFF); 
-  out.put(size_of_bitmap_data >> 32 & 0xFF); 
-  out.put(0x13); out.put(0x0B); out.put(0x00); out.put(0x00); // 72 DPI resolution for printing
-  out.put(0x13); out.put(0x0B); out.put(0x00); out.put(0x00); //           "
-  out.put(0x00); out.put(0x00); out.put(0x00); out.put(0x00); // 0 colors in the palette
-  out.put(0x00); out.put(0x00); out.put(0x00); out.put(0x00); // 0 = all colors are important
+  out.put(size_of_bitmap_data & 0xFF);
+  out.put(size_of_bitmap_data >> 8 & 0xFF);
+  out.put(size_of_bitmap_data >> 16 & 0xFF);
+  out.put(size_of_bitmap_data >> 32 & 0xFF);
+  out.put(0x13);
+  out.put(0x0B);
+  out.put(0x00);
+  out.put(0x00); // 72 DPI resolution for printing
+  out.put(0x13);
+  out.put(0x0B);
+  out.put(0x00);
+  out.put(0x00); //           "
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // 0 colors in the palette
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00);
+  out.put(0x00); // 0 = all colors are important
   // start of pixel map array, 4 byte alignment padding at end of line if nedded
-  for (size_t y = 0u; y < screen.getHeight(); y++ ) {
-    for (size_t x = 0u; x < screen.getWidth(); x++) {
-      out.put( ((unsigned short) (screen.getPixel(x, screen.getHeight() - 1 - y).getR() * 255.0) ) & 0xFF );
-      out.put( ((unsigned short) (screen.getPixel(x, screen.getHeight() - 1 - y).getG() * 255.0) ) & 0xFF );
-      out.put( ((unsigned short) (screen.getPixel(x, screen.getHeight() - 1 - y).getB() * 255.0) ) & 0xFF );
+  for (size_t y = 0u; y < screen.getHeight(); y++)
+  {
+    for (size_t x = 0u; x < screen.getWidth(); x++)
+    {
+      out.put(((unsigned short)(screen.getPixel(x, screen.getHeight() - 1 - y).getR() * 255.0)) & 0xFF);
+      out.put(((unsigned short)(screen.getPixel(x, screen.getHeight() - 1 - y).getG() * 255.0)) & 0xFF);
+      out.put(((unsigned short)(screen.getPixel(x, screen.getHeight() - 1 - y).getB() * 255.0)) & 0xFF);
     }
-    for (size_t padding_bytes = 0u; padding_bytes < screen.getWidth() % 4; padding_bytes++) {
-      out.put( 0x00 );
+    for (size_t padding_bytes = 0u; padding_bytes < screen.getWidth() % 4; padding_bytes++)
+    {
+      out.put(0x00);
     }
-  } 
+  }
 }
-int main(void){
-    Scene scene;
-    scene.addLight(Light({0.0f, 0.0f, 0.0f}, Color(1.0, 1.0, 1.0)));
-    scene.addLight(Light({0.0f, 1.5f, 0.0f}, Color(1.0, 1.0, 1.0)));
-    int height = 2000;
-    int width = 2000;
-    scene.addSphere(Sphere3df({0.0f, 0.0f, -10002.0f},10000.0f), Material(Color(0.3, 0.5, 0.0), 0.1, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({0.0f, 0.0f, 10002.0f},10000.0f), Material(Color(0.8, 0.3, 0.2), 0.1, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({10002.0f, 0.0f, 0.0f},10000.0), Material(Color(0.3, 1.0, 0.2), 0.1, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({0.0f, -10002.0f, 0.0f},10000.0f), Material(Color(0.3, 0.5, 1.0), 0.1, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({0.0f,10002.0f, 0.0f},10000.0f), Material(Color(1.0, 0.0, 0.0), 0.1, 0.9, 0.9, 10.0));
- 
-    scene.addSphere(Sphere3df({-0.4, -0.5, -0.5}, 0.3), Material(Color(0.0, 0.0, 1.0), 1.0, 0.9, 0.9, 10.0));
-    scene.addSphere(Sphere3df({0.4, 0.5, 0.5}, 0.2), Material(Color(0.0, 0.0, 1.0), 1.0, 0.9, 0.9, 10.0));
-    //scene.addSphere(Sphere3df({0.0, 0.0, 0.0}, 0.2), Material(Color(0.5, 0.8, 0.0), 0.1, 0.9, 0.9, 10.0));
-    
-   
-    Screen screen = Screen(width, height);
-    Camera camera = Camera({-2.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f}, {0.0, 0.0, 0.0},PI/4, (float)width / (float)height);
-    //Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
-    //renderer.init();
-    
-    raytrace(camera, screen, scene);
-    //renderer.render(&screen);
-     std::ofstream output("test.bmp", std::ofstream::binary); 
-    write_bmp(output,screen);
-    std::cout << "finished" << std::endl;
-    output.close();
-       // renderer.exit();
+int main(void)
+{
+  Scene scene;
+  scene.addLight(Light({0.0f,1.9f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
+  //scene.addLight(Light({0.0f, -1.9f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
+  //  scene.addLight(Light({-2.0f, 0.0f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
+  int height = 5500;
+  int width = 5500;
+  scene.addSphere(Sphere3df({0.0f, 0.0f, -10002.0f}, 10000.0f), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0));
+  scene.addSphere(Sphere3df({0.0f, 0.0f, 10002.0f}, 10000.0f), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0));
+  scene.addSphere(Sphere3df({10002.0f, 0.0f, 0.0f}, 10000.0), Material(Color(0.0, 1.0, 0.0), 0.1, 0.9, 0.9, 10.0));
+  scene.addSphere(Sphere3df({0.0f, -10002.0f, 0.0f}, 10000.0f), Material(Color(1.0, 0.0, 0.0), 0.1, 1.0, 0.9, 10.0));
+  scene.addSphere(Sphere3df({0.0f, 10002.0f, 0.0f}, 10000.0f), Material(Color(0.5, 0.5, 0.0), 0.1, 0.9, 0.9, 10.0, 0.1));
 
-    // Bildschirm erstellen
-    // Kamera erstellen
-    // Für jede Pixelkoordinate x,y
+  scene.addSphere(Sphere3df({0.4f, 0.5f, 0.5f}, 0.5), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0, 1.0));
+  // scene.addSphere(Sphere3df({0.0f, 0.0f, 0.0f}, 0.3), Material(Color(0.0, 0.0, 1.0), 1.0, 0.9, 0.9, 10.0, 0.0));
+  scene.addSphere(Sphere3df({-0.4f, -0.5f, -0.5f}, 0.5), Material(Color(1.0, 0.0, 0.0), 0.1, 0.9, 0.9, 10.0, 0.0));
+  // scene.addSphere(Sphere3df({0.0, 0.0, 0.0}, 0.2), Material(Color(0.5, 0.8, 0.0), 0.1, 0.9, 0.9, 10.0));
 
-    // Bildschirm erstellen
-    // Kamera erstellen
-    // Für jede Pixelkoordinate x,y
-    //   Sehstrahl für x,y mit Kamera erzeugen
-    //   Farbe mit raytracing-Methode bestimmen
-    //   Beim Bildschirm die Farbe für Pixel x,y, setzten
+  Screen screen = Screen(width, height);
+  Camera camera = Camera({-2.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f}, {0.0, 0.0, 0.0}, PI / 3, (float)width / (float)height);
+  //Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
+  //renderer.init();
 
-    return 0;
+  raytrace(camera, screen, scene);
+  //renderer.render(&screen);
+  std::ofstream output("test.bmp", std::ofstream::binary);
+  write_bmp(output, screen);
+  std::cout << "finished" << std::endl;
+  output.close();
+  // renderer.exit();
+
+  // Bildschirm erstellen
+  // Kamera erstellen
+  // Für jede Pixelkoordinate x,y
+
+  // Bildschirm erstellen
+  // Kamera erstellen
+  // Für jede Pixelkoordinate x,y
+  //   Sehstrahl für x,y mit Kamera erzeugen
+  //   Farbe mit raytracing-Methode bestimmen
+  //   Beim Bildschirm die Farbe für Pixel x,y, setzten
+
+  return 0;
 }

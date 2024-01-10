@@ -90,15 +90,15 @@ bool Raytracer_Renderer::exit()
     return true;
 }
 // -- Color --
-float Color::getR()
+double Color::getR()
 {
     return this->r;
 }
-float Color::getG()
+double Color::getG()
 {
     return this->g;
 }
-float Color::getB()
+double Color::getB()
 {
     return this->b;
 }
@@ -131,7 +131,7 @@ int Screen::getHeight()
 }
 // -- Screen end --
 // -- Camera --
-Camera::Camera(Vector3df eye, Vector3df upguide, Vector3df target, float fov, float aspect_ratio) : eye(eye), forward(target - eye), right(forward.cross_product(upguide)), up(right.cross_product(forward))
+Camera::Camera(Vector3df eye, Vector3df upguide, Vector3df target, double fov, double aspect_ratio) : eye(eye), forward(target - eye), right(forward.cross_product(upguide)), up(right.cross_product(forward))
 {
     this->height = tan(fov);
     this->width = height * aspect_ratio;
@@ -160,22 +160,16 @@ std::vector<Light> Scene::getLights()
 {
     return this->lights;
 }
-void Scene::setAABB(AABB3df aabb, Material material)
-{
-    aabbs.push_back(std::pair<AABB3df, Material>(aabb, material));
-}
+
 std::vector<std::pair<Sphere3df, Material>> Scene::getSpheres()
 {
     return this->spheres;
 }
-void Scene::addAABB(AABB3df aabb, Material material)
-{
-    this->aabbs.push_back(std::pair<AABB3df, Material>(aabb, material));
-}
+
 
 HitContext *Scene::nearestSphere(Ray3df &ray )
 {
-    float tmin = INFINITY;
+    double tmin = INFINITY;
     HitContext *hitContext = new HitContext();
     Intersection_Context<float, 3> context;
     for (long unsigned int i = 0; i < spheres.size(); i++)
@@ -197,14 +191,26 @@ HitContext *Scene::nearestSphere(Ray3df &ray )
     }
     return hitContext;
 }
+Vector3df Light::getRandomPoint()
+{
+    float theta = ((float) rand() / (RAND_MAX)) * 2.0f * M_PI;
+    float phi = acos(2.0f * ((float) rand() / (RAND_MAX)) - 1.0f);
 
+    float x = sin(phi) * cos(theta);
+    float y = sin(phi) * sin(theta);
+    float z = cos(phi);
+
+    Vector3df randomPointOnUnitSphere({x, y, z});
+
+    return position + 0.3f * randomPointOnUnitSphere;
+}
     
 std::vector<Light> Scene::findlights(HitContext &hit)
 {
     std::vector<Light> vis_lights;
     for(Light light : lights)
     {
-        Vector3df offset =0.0001f* hit.normal; // Adjust the magnitude of the offset as needed
+        Vector3df offset =0.001f* hit.normal; // Adjust the magnitude of the offset as needed
         Ray3df shadowRay = {hit.intersection + offset, light.getPosition() - hit.intersection};
         HitContext *shadowHitContext = nearestSphere(shadowRay);
         if(shadowHitContext->hit && shadowHitContext->t >= 1.0f){
@@ -214,16 +220,20 @@ std::vector<Light> Scene::findlights(HitContext &hit)
     }
     return vis_lights;
 }
- Color Scene::lambert(int n, std::vector<Light> &vis_lights, HitContext &con)
+Color Scene::lambert(int n, std::vector<Light> &vis_lights, HitContext &con)
+{
+    Color matColor = con.m.getColor();
+    float ambient = con.m.getAmbient();
+    Color color = matColor * ambient;
+    for (Light &light : vis_lights)
     {
-        Color color = con.m.getColor() * con.m.getAmbient() ;
-        for (Light light : vis_lights)
-        {
-            Vector3df lightDir = light.getPosition() - con.intersection;
-            lightDir.normalize();
-            float lambert = std::max(0.0f, con.normal * lightDir);
-            color = color + ( lambert) * light.getColor() * con.m.getColor();
-        }
-        return (con.m.getDiffuse()* color)/n;
+        Vector3df lightPos = light.getPosition();
+        Vector3df lightDir = lightPos - con.intersection;
+        lightDir.normalize();
+        double lambert = std::max(0.0f, con.normal * lightDir);
+        color += lambert * light.getColor() * matColor;
+    }
+
+    return color;
 }
 // -- Scene end --

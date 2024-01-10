@@ -10,15 +10,15 @@
 
 class Color{
     private:
-        float r;
-        float g;
-        float b;
+        double r;
+        double g;
+        double b;
       
     public:
-        Color(float r = 0, float g = 0, float b = 0):r(r),g(g),b(b){}
-        float getR();
-        float getG();
-        float getB();
+        Color(double r = 0, double g = 0, double b = 0):r(r),g(g),b(b){}
+        double getR();
+        double getG();
+        double getB();
         
        Color operator+(Color addend) const {
     return Color(r + addend.r, g + addend.g, b+ addend.b);
@@ -28,12 +28,22 @@ class Color{
     return Color(r * factor.r, g * factor.g, b * factor.b);
   }
 
-  friend Color operator*(const float factor, Color color)  {
+  friend Color operator*(const double factor, Color color)  {
     return Color(factor * color.r, factor * color.g, factor * color.b);
   }
-  Color operator/(float factor) const {
+  Color operator/(double factor) const {
     return Color(r / factor, g / factor, b / factor);
   }
+  friend Color operator/(Color factor, Color color)  {
+    return Color(factor.r / color.r, factor.g / color.g, factor.b / color.b);
+  }
+  Color operator+=(Color addend) {
+    r += addend.r;
+    g += addend.g;
+    b += addend.b;
+    return *this;
+  }
+    
 };
 class Screen{
     private:
@@ -54,7 +64,7 @@ class Camera {
         Vector3df eye, forward, right, up;
         float width, height;
     public:
-       Camera(Vector3df eye, Vector3df upguide, Vector3df target, float width, float height);
+       Camera(Vector3df eye, Vector3df upguide, Vector3df target, double width, double height);
         Ray3df makeRay(float x, float y);
 };
 class Light {
@@ -65,7 +75,7 @@ public:
         Color color = Color(1.0, 1.0, 1.0) )
     : position(position), color(color) {
   }
-
+ Vector3df getRandomPoint();
   Color getColor() const {
      return this->color;
   }
@@ -78,32 +88,34 @@ public:
 class Material {
 private:
   Color color;
-  float ambient, diffuse, specular, exponent;
+  double ambient, diffuse, specular, exponent, reflection;
 public:
     Material(Color color = Color(1.0, 1.0, 1.0),
-             float ambient = 0.1, float diffuse = 0.9,
-             float specular = 0.9, float exponent = 10.0)
+             double ambient = 0.1, double diffuse = 0.9,
+             double specular = 0.9, double exponent = 10.0, double reflection = 0.0)
         : color(color), ambient(ambient), diffuse(diffuse),
-        specular(specular), exponent(exponent) {
+        specular(specular), exponent(exponent), reflection(reflection)  {
     }
-    
+    double getReflection() const{
+        return reflection;
+    }
     Color getColor() const {
         return color;
     }
     
-    float getAmbient() const {
+    double getAmbient() const {
         return ambient;
     }
     
-    float getDiffuse() const {
+    double getDiffuse() const {
         return diffuse;
     }
     
-    float getSpecular() const {
+    double getSpecular() const {
         return specular;
     }
     
-    float getExponent() const {
+    double getExponent() const {
         return exponent;
     }
     Color operator+(Material& m);
@@ -113,7 +125,7 @@ public:
     bool sphere ;
     bool hit;
     Material m;
-    float u,v, // may be used for U-V-Mapping, values depend on intersected object
+    double u,v, // may be used for U-V-Mapping, values depend on intersected object
         t;  // intersection = ray.origin + t * ray.direction
     Vector3df normal{},  // the intersection normal pointing away from the surface
                    intersection{};
