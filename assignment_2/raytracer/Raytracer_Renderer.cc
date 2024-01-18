@@ -36,7 +36,6 @@ bool Raytracer_Renderer::init()
 }
 bool Raytracer_Renderer::render(Screen *screen)
 {
-    
     for (int y = 0; y < this->window_height; y++)
     {
         for (int x = 0; x < this->window_width; x++)
@@ -50,7 +49,6 @@ bool Raytracer_Renderer::render(Screen *screen)
             std::cout << " y: " << y << std::endl;
             */
             SDL_RenderDrawPoint(renderer, x, y);
-           
         }
     }
     while (!quit)
@@ -77,6 +75,9 @@ void Raytracer_Renderer::Event()
         {
         case SDL_QUIT:
             this->quit = true;
+            break;
+        case SDL_WINDOW_RESIZABLE:
+            SDL_GetWindowSize(window, &this->window_width, &this->window_height);
             break;
         }
     }

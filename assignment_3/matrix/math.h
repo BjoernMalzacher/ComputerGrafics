@@ -20,11 +20,11 @@ struct Vector {
   // if less than N values are given, then all remaining values of this->vector
   //   are initialized with the last given value 
   Vector( std::initializer_list<FLOAT_TYPE> values );
-  Vector();
+  
   // creates a unit vector pointing to the given angle (in radians) in the x/y plane
   // angle = 0 points in the direction of the x-axis
   explicit Vector(FLOAT_TYPE angle);
-
+  Vector();
   // adds addend to this Vector and returns the resulting sum
   Vector & operator+=(const Vector addend);
 

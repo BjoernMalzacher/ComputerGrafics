@@ -1,4 +1,5 @@
 #include <cassert>
+#include "math.h"
 
 template <class FLOAT_TYPE, size_t N>
 Vector<FLOAT_TYPE, N>::Vector( std::initializer_list<FLOAT_TYPE> values ) {
@@ -16,8 +17,11 @@ template <class FLOAT_TYPE, size_t N>
 Vector<FLOAT_TYPE, N>::Vector(FLOAT_TYPE angle ) {
   *this = { static_cast<FLOAT_TYPE>( cos(angle) ), static_cast<FLOAT_TYPE>(sin(angle)) };
 }
-template <class FLOAT_TYPE, size_t N>
+template<class FLOAT_TYPE, size_t N>
 Vector<FLOAT_TYPE, N>::Vector() {
+ for (size_t i = 0; i < N; ++i) {
+    vector[i] = 0;
+  }
 }
 
 template <class FLOAT_TYPE, size_t N>  

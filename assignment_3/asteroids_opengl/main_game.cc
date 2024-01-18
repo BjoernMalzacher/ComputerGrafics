@@ -34,6 +34,7 @@ int main(void) {
   do {
     debug(1, "game loop begin.");
     timer.reset();
+  
     renderer->render();
     controller.do_user_interactions();
     if ( ! controller.exit_game() ) {

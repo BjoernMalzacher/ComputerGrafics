@@ -32,14 +32,22 @@ Vector<FLOAT,N> SquareMatrix<FLOAT, N>::operator*(const Vector<FLOAT,N> vector) 
   }
   return product;
 }
+
 template <class FLOAT, size_t N>
 SquareMatrix<FLOAT, N> operator*(const SquareMatrix<FLOAT, N> factor1, const SquareMatrix<FLOAT, N> factor2) {
-    SquareMatrix<FLOAT, N> product = factor1;
-    for (size_t i = 0u; i < N; i++) {
-        for (size_t j = 0u; j < N; j++) {
-        product[i][j] = factor1[i] * factor2[j];
+  SquareMatrix<FLOAT, N> product = factor1;
+  
+  for (size_t i = 0; i < N-1; i++) {
+    
+    for (size_t j = 0; j < N-1; j++) {
+      product[i][j] = 0;
+       for(size_t k = 0; k < N-1; k++) {
+       
+      
+        product[i][j] += factor1.at(j,k)*factor2.at(k,i);
         }
+      
     }
-    return product;
- 
+  }
+  return product;
 }

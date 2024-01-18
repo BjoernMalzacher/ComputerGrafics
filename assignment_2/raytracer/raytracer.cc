@@ -76,7 +76,7 @@ Color trace(Ray3df &ray, Scene &scene, int depth)
   std::vector<Light> lights = scene.findlights(*con);
   Color color = scene.lambert(lights.size(), lights, *con);
 
-  // Handle reflections
+
   float reflectivity = con->m.getReflection();
   if (reflectivity > 0.0f)
   {
@@ -225,8 +225,8 @@ int main(void)
   scene.addLight(Light({0.0f,1.9f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
   //scene.addLight(Light({0.0f, -1.9f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
   //  scene.addLight(Light({-2.0f, 0.0f, 0.0f}, Color(1.0f, 1.0f, 1.0f)));
-  int height = 5500;
-  int width = 5500;
+  int height = 600;
+  int width = 480;
   scene.addSphere(Sphere3df({0.0f, 0.0f, -10002.0f}, 10000.0f), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0));
   scene.addSphere(Sphere3df({0.0f, 0.0f, 10002.0f}, 10000.0f), Material(Color(0.0, 0.0, 1.0), 0.1, 0.9, 0.9, 10.0));
   scene.addSphere(Sphere3df({10002.0f, 0.0f, 0.0f}, 10000.0), Material(Color(0.0, 1.0, 0.0), 0.1, 0.9, 0.9, 10.0));
@@ -240,16 +240,16 @@ int main(void)
 
   Screen screen = Screen(width, height);
   Camera camera = Camera({-2.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f}, {0.0, 0.0, 0.0}, PI / 3, (float)width / (float)height);
-  //Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
-  //renderer.init();
+  Raytracer_Renderer renderer = Raytracer_Renderer(width, height, "Raytracer");
+  renderer.init();
 
   raytrace(camera, screen, scene);
-  //renderer.render(&screen);
+  renderer.render(&screen);
   std::ofstream output("test.bmp", std::ofstream::binary);
   write_bmp(output, screen);
   std::cout << "finished" << std::endl;
   output.close();
-  // renderer.exit();
+  renderer.exit();
 
   // Bildschirm erstellen
   // Kamera erstellen
