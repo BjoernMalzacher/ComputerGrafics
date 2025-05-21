@@ -216,7 +216,7 @@ bool SDL2Renderer::init() {
   if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
     std::cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
   } else {
-    window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, window_width, window_height, SDL_WINDOW_SHOWN );
+    window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 2048,1536, SDL_WINDOW_SHOWN );
     if( window == nullptr ) {
       std::cout << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
     } else {

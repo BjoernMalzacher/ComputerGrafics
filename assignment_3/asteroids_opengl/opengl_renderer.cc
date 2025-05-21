@@ -220,7 +220,7 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
       modify(this);
       auto transform = world * create_object_transformation(typed_body->get_position(), typed_body->get_angle(), scale);
       OpenGLView::render(transform);
-    }
+      }
     debug(2, "render() exit.");
   }
   
@@ -516,9 +516,34 @@ void OpenGLRenderer::render() {
   }
 
   debug(2, "render all views");
+for (size_t i = 0; i <= 3; i++){
+for (size_t j = 0; j <= 2; j++){
+  auto move = SquareMatrix4df{
+    {1.0f, 0.0f, 0.0f,},
+    {0.0f, 1.0f, 0.0f, },
+    {0.0f, 0.0f, 1.0f, 0.0f},
+    { tile_positions[i*3+j][0], tile_positions[i*3+j][1], 0.0f, 1.0f}
+  };
   for (auto & view : views) {
-    view->render( world_transformation );
+    
+    if(game.ship_exists()) {  
+
+      SquareMatrix4df  spaceship_translation= { {1.0f,        0.0f,          0.0f, 0.0f},
+                                    {0.0f,        1.0f,          0.0f, 0.0f},
+                                    {0.0f,        0.0f,          1.0f, 0.0f},
+                                    {-game.get_ship()->get_position()[0]+512, -game.get_ship()->get_position()[1]+368, 0.0f, 1.0f}};
+
+        auto final_tramsform = world_transformation*move*spaceship_translation;
+        
+                view->render( final_tramsform );
+    }else if(view->get_typed_body()->get_type() != BodyType::spaceship) {
+        auto final_tramsform = world_transformation*move;
+                view->render( final_tramsform );
+    }
   }
+}
+}
+
   
   renderFreeShips(world_transformation);
   renderScore(world_transformation);

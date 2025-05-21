@@ -37,11 +37,11 @@ template <class FLOAT, size_t N>
 SquareMatrix<FLOAT, N> operator*(const SquareMatrix<FLOAT, N> factor1, const SquareMatrix<FLOAT, N> factor2) {
   SquareMatrix<FLOAT, N> product = factor1;
   
-  for (size_t i = 0; i < N-1; i++) {
+  for (size_t i = 0; i < N; i++) {
     
-    for (size_t j = 0; j < N-1; j++) {
+    for (size_t j = 0; j < N; j++) {
       product[i][j] = 0;
-       for(size_t k = 0; k < N-1; k++) {
+       for(size_t k = 0; k < N; k++) {
        
       
         product[i][j] += factor1.at(j,k)*factor2.at(k,i);
