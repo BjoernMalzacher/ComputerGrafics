@@ -1,0 +1,4 @@
+/home/malzacher/ComputerGrafics/assignment_3/viewer/CMakeFiles/viewer.dir
+/home/malzacher/ComputerGrafics/assignment_3/viewer/CMakeFiles/wavefront_test.dir
+/home/malzacher/ComputerGrafics/assignment_3/viewer/CMakeFiles/edit_cache.dir
+/home/malzacher/ComputerGrafics/assignment_3/viewer/CMakeFiles/rebuild_cache.dir
