@@ -1,4 +1,5 @@
 #include "opengl_renderer.h"
+#include "wavefront.h"
 #include <cassert>
 #include <span>
 #include <utility>
@@ -147,14 +148,14 @@ std::vector<Vector2df> digit_6 = { {0,-8}, {0,0}, {4,0}, {4,-4}, {0,-4} };
 std::vector<Vector2df> digit_7 = { {0,-8}, {4,-8}, {4,0} };
 std::vector<Vector2df> digit_8 = { {0,-8}, {4,-8}, {4,0}, {0,0}, {0,-8}, {0, -4}, {4, -4} };
 std::vector<Vector2df> digit_9 = { {4, 0}, {4,-8}, {0,-8}, {0, -4}, {4, -4} };
-       
+  
 std::vector< std::vector<Vector2df> * > vertice_data = {
   &spaceship, &flame,
   &torpedo_points, &saucer_points,
   &asteroid_1, &asteroid_2, &asteroid_3, &asteroid_4,
   &spaceship_debris, &spaceship_debris_direction,
   &debris_points,
-  &digit_0, &digit_1, &digit_2, &digit_3, &digit_4, &digit_5, &digit_6, &digit_7, &digit_8, &digit_9 };                                  
+  &digit_0, &digit_1, &digit_2, &digit_3, &digit_4, &digit_5, &digit_6, &digit_7, &digit_8, &digit_9 };   
 
 
 // class OpenGLView
@@ -167,8 +168,34 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
+    if(mode != GL_TRIANGLES){
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+     glEnableVertexAttribArray(0);
+    }else{
+      glVertexAttribPointer(0,
+                              3,        // number of vertices (components)
+                              GL_FLOAT, //
+                              GL_FALSE, // no normalization
+                              9 * sizeof(float), // no of bytes between each vertice (component)
+                              (void*)0);
+        glEnableVertexAttribArray(0);
+
+        glVertexAttribPointer(1,
+                              3,        // no vertices (components)
+                              GL_FLOAT, //
+                              GL_FALSE, // no normalization
+                              9 * sizeof(float), // no of bytes between each color (component)
+                              (void*)(6 * sizeof(float)) ); // offset to color data in the vbo
+        glEnableVertexAttribArray(1);
+
+        glVertexAttribPointer(2,
+                              3,        // no vertices (components)
+                              GL_FLOAT, //
+                              GL_FALSE, // no normalization
+                              9 * sizeof(float), // no of bytes between each color (component)
+                              (void*)(3 * sizeof(float)) ); // offset to color data in the vbo
+        glEnableVertexAttribArray(2);
+                            }
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
@@ -181,9 +208,12 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
     debug(2, "render() entry...");
     glBindVertexArray(vao);
     glUseProgram(shaderProgram);
-    unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+    unsigned int transformLoc = glGetUniformLocation(shaderProgram, "model");
+
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &matrice[0][0] );
-    glDrawArrays(mode, 0, vertices_size );
+
+    glDrawArrays(mode, 0, vertices_size/9 );
+
     debug(2, "render() exit.");
   }
 
@@ -232,61 +262,149 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
    this->scale = scale;
  }
 
-// class OpenGLRenderer
+
+Material default_material = { {1.0f, 1.0f, 1.0f} };
+
+/* assumes that the all i faces are triangles, more than three vertices of a face are ignored
+   creates a vector of floats with the following layout
+   [ face1 | face2 | ... | facei ]
+   where each face consists of a sequence of 3 (=number of triangle vertices) * 9 floats
+   x1 y1 z1 nx1 ny1 nz1 r1 g1 b1 | x2 y2 z2 nx2 ny2 nz2 r2 g2 b2 | x3 y3 z3 nx3 ny3 nz3 r3 g3 b3
+     vertex   normal     color       vertex    normal     color     vertex    normal     color
+     
+  if no material is given for a face, then the default_material is used
+  
+  if you want to use other layouts, then adapt this code
+*/     
+std::vector<float> create_vertices(WavefrontImporter & wi) {
+  std::vector<float> vertices;
+  
+  for (Face face : wi.get_faces() ) {
+    for (ReferenceGroup group : face.reference_groups ) {
+      for (size_t i = 0; i < 3; i++) {
+        vertices.push_back( group.vertice[i]);
+      }
+      for (size_t i = 0; i < 3; i++) {
+        vertices.push_back( group.normal[i] );
+      }
+      if (face.material == nullptr) face.material = &default_material;
+      for (size_t i = 0; i < 3; i++) {
+        vertices.push_back( face.material->ambient[i]);
+      }
+    } 
+  }
+  return vertices;
+}
 
 void OpenGLRenderer::createVbos() {
- vbos = new GLuint[vertice_data.size()];
- glGenBuffers(vertice_data.size(), vbos);
+  std::fstream in("spaceship.obj");
+  WavefrontImporter wi(in);
+  wi.parse();
+  const auto& vertices_spaceship = create_vertices(wi);
+
+  std::fstream in2("UFO.obj");
+  WavefrontImporter wi2(in2);
+  wi2.parse();
+  const auto& vertices_UFO = create_vertices(wi2);
+
+  
+  std::fstream in3("Torpedo.obj");
+  WavefrontImporter wi3(in3);
+  wi3.parse();
+  const auto& vertices_torpedos = create_vertices(wi3);
+  
+  std::fstream in4("comet.obj");
+  WavefrontImporter wi4(in4);
+  wi4.parse();
+  const auto& vertices_comet = create_vertices(wi4);
+
+  std::fstream in5("debrees.obj");
+  WavefrontImporter wi5(in5);
+  wi5.parse();
+  const auto& vertices_debrees = create_vertices(wi5);
+
+
+  vbos = new GLuint[vertice_data.size()+5];
+  glGenBuffers(vertice_data.size()+5, vbos);
 
  for (size_t i = 0; i < vertice_data.size(); i++) {
    glBindBuffer(GL_ARRAY_BUFFER, vbos[i]);
    glBufferData(GL_ARRAY_BUFFER, vertice_data[i]->size() * sizeof( Vector2df ), vertice_data[i]->data(), GL_STATIC_DRAW);
  }
+
+  glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()]);
+  glBufferData(GL_ARRAY_BUFFER, vertices_spaceship.size() * sizeof(double),vertices_spaceship.data(), GL_STATIC_DRAW);
+  
+  glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+1]);
+  glBufferData(GL_ARRAY_BUFFER, vertices_comet.size() * sizeof(double),vertices_comet.data(), GL_STATIC_DRAW);
+  
+  glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+2]);
+  glBufferData(GL_ARRAY_BUFFER, vertices_UFO.size() * sizeof(double),vertices_UFO.data(), GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+3]);
+  glBufferData(GL_ARRAY_BUFFER, vertices_torpedos.size() * sizeof(double),vertices_torpedos.data(), GL_STATIC_DRAW);
+
+  glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+4]);
+  glBufferData(GL_ARRAY_BUFFER, vertices_debrees.size() * sizeof(double),vertices_debrees.data(), GL_STATIC_DRAW);
 }
 
 void OpenGLRenderer::create(Spaceship * ship, std::vector< std::unique_ptr<TypedBodyView> > & views) {
-  debug(4, "create(Spaceship *) entry...");
-
-  views.push_back(std::make_unique<TypedBodyView>(ship, vbos[0], shaderProgram, vertice_data[0]->size(), 1.0f, GL_LINE_LOOP,
+    debug(4, "create(Spaceship *) entry...");
+    std::fstream in("spaceship.obj");
+    WavefrontImporter wi(in);
+    wi.parse();
+  const auto& vertices_spaceship = create_vertices(wi);
+  views.push_back(std::make_unique<TypedBodyView>(ship, vbos[vertice_data.size()], shaderProgram, vertices_spaceship.size(), 20.0f, GL_TRIANGLES,
                   [ship]() -> bool {return ! ship->is_in_hyperspace();}) // only show ship if outside hyperspace
                  );   
-  views.push_back(std::make_unique<TypedBodyView>(ship, vbos[1], shaderProgram, vertice_data[1]->size(), 1.0f, GL_LINE_LOOP,
+  views.push_back(std::make_unique<TypedBodyView>(ship, vbos[vertice_data.size()], shaderProgram, vertices_spaceship.size(), 20.0f, GL_TRIANGLES,
                   [ship]() -> bool {return ! ship->is_in_hyperspace() && ship->is_accelerating();}) // only show flame if accelerating
                  );   
-  
-  debug(4, "create(Spaceship *) exit.");
+
+    debug(4, "create(Spaceship *) exit.");
 }
 
 void OpenGLRenderer::create(Saucer * saucer, std::vector< std::unique_ptr<TypedBodyView> > & views) {
   debug(4, "create(Saucer *) entry...");
-  float scale = 0.5;
-  if ( saucer->get_size() == 0 ) {
-    scale = 0.25;
-  }
-  views.push_back(std::make_unique<TypedBodyView>(saucer, vbos[3], shaderProgram, vertice_data[3]->size(), scale));   
+  std::fstream in2("UFO.obj");
+  WavefrontImporter wi2(in2);
+  wi2.parse();
+  const auto& vertices_UFO = create_vertices(wi2);
+
+  views.push_back(std::make_unique<TypedBodyView>(saucer, vbos[vertice_data.size()+2], shaderProgram, vertices_UFO.size(), 20.0f, GL_TRIANGLES));   
   debug(4, "create(Saucer *) exit.");
 }
 
 
 void OpenGLRenderer::create(Torpedo * torpedo, std::vector< std::unique_ptr<TypedBodyView> > & views) {
   debug(4, "create(Torpedo *) entry...");
-  views.push_back(std::make_unique<TypedBodyView>(torpedo, vbos[2], shaderProgram, vertice_data[2]->size(), 1.0f)); 
+    std::fstream in3("Torpedo.obj");
+  WavefrontImporter wi3(in3);
+  wi3.parse();
+  const auto& vertices_torpedos = create_vertices(wi3);
+  views.push_back(std::make_unique<TypedBodyView>(torpedo, vbos[vertice_data.size()+3], shaderProgram, vertices_torpedos.size(), 3.0f, GL_TRIANGLES)); 
   debug(4, "create(Torpedo *) exit.");
 }
 
 void OpenGLRenderer::create(Asteroid * asteroid, std::vector< std::unique_ptr<TypedBodyView> > & views) {
   debug(4, "create(Asteroid *) entry...");
-  GLuint rock_vbo_index = 4 +  asteroid->get_rock_type();
-
-  float scale = (asteroid->get_size() == 3 ? 1.0 : ( asteroid->get_size() == 2 ? 0.5 : 0.25 ));
+    std::fstream in("comet.obj");
+    WavefrontImporter wi(in);
+    wi.parse();  
+    const auto& vertices_spaceship = create_vertices(wi);
  
-  views.push_back(std::make_unique<TypedBodyView>(asteroid, vbos[rock_vbo_index], shaderProgram, vertice_data[rock_vbo_index]->size(), scale)); 
+  views.push_back(std::make_unique<TypedBodyView>(asteroid, vbos[vertice_data.size()+1], shaderProgram,vertices_spaceship.size(), 25.0f, GL_TRIANGLES)); 
   debug(4, "create(Asteroid *) exit.");
 }
 
 void OpenGLRenderer::create(SpaceshipDebris * debris, std::vector< std::unique_ptr<TypedBodyView> > & views) {
   debug(4, "create(SpaceshipDebris *) entry...");
-  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[10], shaderProgram, vertice_data[10]->size(), 0.1f, GL_POINTS,
+  std::fstream in5("debrees.obj");
+  WavefrontImporter wi5(in5);
+  wi5.parse();
+  const auto& vertices_debrees = create_vertices(wi5);
+
+  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[vertice_data.size()+4], shaderProgram, vertices_debrees.size(), 20.0f, GL_TRIANGLES,
             []() -> bool {return true;},
             [debris](TypedBodyView * view) -> void { view->set_scale( 0.2f * (SpaceshipDebris::TIME_TO_DELETE - debris->get_time_to_delete()));}));   
   debug(4, "create(SpaceshipDebris *) exit.");
@@ -294,7 +412,11 @@ void OpenGLRenderer::create(SpaceshipDebris * debris, std::vector< std::unique_p
 
 void OpenGLRenderer::create(Debris * debris, std::vector< std::unique_ptr<TypedBodyView> > & views) {
   debug(4, "create(Debris *) entry...");
-  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[10], shaderProgram, vertice_data[10]->size(), 0.1f, GL_POINTS,
+    std::fstream in5("debrees.obj");
+  WavefrontImporter wi5(in5);
+  wi5.parse();
+  const auto& vertices_debrees = create_vertices(wi5);
+  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[vertice_data.size()+4], shaderProgram, vertices_debrees.size(), 25.0f, GL_TRIANGLES,
             []() -> bool {return true;},
             [debris](TypedBodyView * view) -> void { view->set_scale(Debris::TIME_TO_DELETE - debris->get_time_to_delete());}));   
   debug(4, "create(Debris *) exit.");
@@ -316,8 +438,8 @@ void OpenGLRenderer::renderFreeShips(SquareMatrix4df & matrice) {
   constexpr float FREE_SHIP_Y = 64;
   const float PIf = static_cast<float> ( PI );
   Vector2df position = {FREE_SHIP_X, FREE_SHIP_Y};
-  SquareMatrix4df rotation = {   { std::cos(-PIf / 2.0f),  std::sin(-PIf / 2.0f), 0.0f, 0.0f},
-                                 {-std::sin(-PIf / 2.0f),  std::cos(-PIf / 2.0f), 0.0f, 0.0f},
+  SquareMatrix4df rotation = {   { std::cos(-PIf / 3.0f),  std::sin(-PIf / 3.0f), 0.0f, 0.0f},
+                                 {-std::sin(-PIf / 3.0f),  std::cos(-PIf / 3.0f), 0.0f, 0.0f},
                                  { 0.0f,                 0.0f,                1.0f, 0.0f},
                                  { 0.0f,                 0.0f,                0.0f, 1.0f}
                                };
@@ -358,61 +480,73 @@ void OpenGLRenderer::renderScore(SquareMatrix4df & matrice) {
 
   } while (no_of_digits > 0);
 }
+void compile_shader(GLint shader, const char * source) {
+  glShaderSource(shader, 1, &source, NULL) ;
+  glCompileShader(shader);
+
+  GLint status;
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+  if (status == GL_FALSE) {
+    std::cerr << " Shader did not compile." << std::endl;
+    char log[512];
+    glGetShaderInfoLog( shader, 512, NULL, log) ;
+    error(log);
+    throw EXIT_FAILURE;
+  }
+}
+
+void check_link_status(GLint shader_program) {
+  GLint status;
+  glGetProgramiv(shader_program, GL_LINK_STATUS, &status);
+  if (status == GL_FALSE) {
+    GLint length;
+    glGetProgramiv(shader_program, GL_INFO_LOG_LENGTH, &length);
+    GLchar *log = new char[length + 1];
+    glGetProgramInfoLog(shader_program, length, &length, &log[0]);
+    error(log);
+    throw EXIT_FAILURE;
+  }
+}
 
 
 void OpenGLRenderer::create_shader_programs() {
-
-static const char *vertexShaderSource = "#version 330 core\n"
-    "layout (location = 0) in vec2 p;\n"
-    "uniform mat4 transform;\n"
+  const char *vertexShaderSource = "#version 330 core\n"
+    "layout (location = 0) in vec3 position;\n" 
+    "layout (location = 1) in vec3 incolor;\n"
+    "layout (location = 2) in vec3 innormal;\n"
+    "out vec3 color;\n"
+    "out vec4 normal;\n"
+    "uniform mat4 model;\n"
     "void main()\n"
     "{\n"
-    "   gl_Position = transform * vec4(p, 1.0, 1.0);\n"
+    "gl_Position = model * vec4(position, 1.0);\n"
+    "color = incolor;\n"
+    "normal = normalize( model * vec4(innormal, 1.0));\n"
     "}\0";
-static const char *fragmentShaderSource = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
-    "}\n\0";
 
-    // build and compile vertex shader
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    // check for shader compile errors
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        error( std::string("vertex shader compilation failed") + infoLog);
-    }
-    // build and compiler fragment shader
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-    // check for shader compile errors
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        error( std::string("fragment shader compilation failed") + infoLog);
-    }
-    
+  // direction to light source is hard coded: (0,1,-4)  
+  // Lambertian shading used for vertices of triangle
+  // cause during rasterization colors are interpolated, the result is Gouraud-Shading
+  const char *fragmentShaderSource = "#version 330 core\n"
+  "out vec4 outColor;\n"
+  "in vec3 color;\n"
+  "in vec4 normal;\n"
+  "void main () {\n"
+  "  outColor = vec4(color * (0.3 + 0.7 * max(0.0, dot(normal, normalize( vec4(0.0, 1.0, -4.0, 0.0))))) , 1.0);\n"
+  "}\n\0";
+  
+  GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER) ;
+  compile_shader(vertexShader, vertexShaderSource);
 
-    // link both shaders
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-    // check for linking errors
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        error( std::string("linking shader programs failed") + infoLog);
-    }
+  GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER) ;
+  compile_shader(fragmentShader, fragmentShaderSource);
+
+  shaderProgram = glCreateProgram() ;
+  glAttachShader(shaderProgram, vertexShader);
+  glAttachShader(shaderProgram, fragmentShader);
+  glBindFragDataLocation(shaderProgram, 0, "outColor");
+  glLinkProgram(shaderProgram);
+  check_link_status(shaderProgram);
 }
 
 
@@ -441,9 +575,9 @@ bool OpenGLRenderer::init() {
       }
       debug(1, "Using GLEW Version: ");
       debug(1, glewGetString(GLEW_VERSION) );
-
+      glEnable(GL_DEPTH_TEST);
       SDL_GL_SetSwapInterval(1);
-
+      
       create_shader_programs();
       createVbos();
       createSpaceShipView();
@@ -488,7 +622,7 @@ void OpenGLRenderer::render() {
                          };
                                                  
   glClearColor ( 0.0, 0.0, 0.0, 1.0 );
-  glClear ( GL_COLOR_BUFFER_BIT );
+  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
   
   debug(2, "remove views for deleted objects");
 

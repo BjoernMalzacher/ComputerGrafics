@@ -1,0 +1,8 @@
+# Torpedo Material
+newmtl RedTorpedo
+Ka 1.0 0.0 0.0  # Ambient color (red)
+Kd 1.0 0.0 0.0  # Diffuse color (red)
+Ks 0.0 0.0 0.0  # Specular color (black)
+Ns 10.0         # Shininess (higher value = shinier)
+d 1.0           # Dissolve (1.0 = fully opaque)
+illum 2         # Illumination model

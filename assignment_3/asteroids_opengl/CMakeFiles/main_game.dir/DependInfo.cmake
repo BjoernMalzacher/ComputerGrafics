@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/sdl2_renderer.cc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o" "gcc" "CMakeFiles/main_game.dir/sdl2_renderer.cc.o.d"
   "/home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/sound.cc" "CMakeFiles/main_game.dir/sound.cc.o" "gcc" "CMakeFiles/main_game.dir/sound.cc.o.d"
   "/home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/timer.cc" "CMakeFiles/main_game.dir/timer.cc.o" "gcc" "CMakeFiles/main_game.dir/timer.cc.o.d"
+  "/home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/wavefront.cc" "CMakeFiles/main_game.dir/wavefront.cc.o" "gcc" "CMakeFiles/main_game.dir/wavefront.cc.o.d"
   )
 
 # Targets to which this target links.

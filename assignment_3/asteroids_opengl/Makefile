@@ -204,6 +204,19 @@ game_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_test.dir/build.make CMakeFiles/game_test.dir/build
 .PHONY : game_test/fast
 
+#=============================================================================
+# Target rules for targets named wavefront_test
+
+# Build rule for target.
+wavefront_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wavefront_test
+.PHONY : wavefront_test
+
+# fast build rule for target.
+wavefront_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/build
+.PHONY : wavefront_test/fast
+
 game.o: game.cc.o
 .PHONY : game.o
 
@@ -630,6 +643,57 @@ timer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_test.dir/build.make CMakeFiles/game_test.dir/timer.cc.s
 .PHONY : timer.cc.s
 
+wavefront.o: wavefront.cc.o
+.PHONY : wavefront.o
+
+# target to build an object file
+wavefront.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_game.dir/build.make CMakeFiles/main_game.dir/wavefront.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront.cc.o
+.PHONY : wavefront.cc.o
+
+wavefront.i: wavefront.cc.i
+.PHONY : wavefront.i
+
+# target to preprocess a source file
+wavefront.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_game.dir/build.make CMakeFiles/main_game.dir/wavefront.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront.cc.i
+.PHONY : wavefront.cc.i
+
+wavefront.s: wavefront.cc.s
+.PHONY : wavefront.s
+
+# target to generate assembly for a file
+wavefront.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_game.dir/build.make CMakeFiles/main_game.dir/wavefront.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront.cc.s
+.PHONY : wavefront.cc.s
+
+wavefront_test.o: wavefront_test.cc.o
+.PHONY : wavefront_test.o
+
+# target to build an object file
+wavefront_test.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront_test.cc.o
+.PHONY : wavefront_test.cc.o
+
+wavefront_test.i: wavefront_test.cc.i
+.PHONY : wavefront_test.i
+
+# target to preprocess a source file
+wavefront_test.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront_test.cc.i
+.PHONY : wavefront_test.cc.i
+
+wavefront_test.s: wavefront_test.cc.s
+.PHONY : wavefront_test.s
+
+# target to generate assembly for a file
+wavefront_test.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wavefront_test.dir/build.make CMakeFiles/wavefront_test.dir/wavefront_test.cc.s
+.PHONY : wavefront_test.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -645,6 +709,7 @@ help:
 	@echo "... math_test"
 	@echo "... matrix_test"
 	@echo "... physics_test"
+	@echo "... wavefront_test"
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"
@@ -693,6 +758,12 @@ help:
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
+	@echo "... wavefront.o"
+	@echo "... wavefront.i"
+	@echo "... wavefront.s"
+	@echo "... wavefront_test.o"
+	@echo "... wavefront_test.i"
+	@echo "... wavefront_test.s"
 .PHONY : help
 
 

@@ -49,4 +49,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/geometry_test.dir/DependInfo.cmake"
   "CMakeFiles/physics_test.dir/DependInfo.cmake"
   "CMakeFiles/game_test.dir/DependInfo.cmake"
+  "CMakeFiles/wavefront_test.dir/DependInfo.cmake"
   )

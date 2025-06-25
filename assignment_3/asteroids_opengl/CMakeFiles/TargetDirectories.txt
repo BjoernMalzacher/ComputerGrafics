@@ -4,6 +4,7 @@
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/geometry_test.dir
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/physics_test.dir
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/game_test.dir
+/home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/wavefront_test.dir
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/test.dir
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/edit_cache.dir
 /home/malzacher/ComputerGrafics/assignment_3/asteroids_opengl/CMakeFiles/rebuild_cache.dir

@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main_game.dir/sound.cc.o.d"
   "CMakeFiles/main_game.dir/timer.cc.o"
   "CMakeFiles/main_game.dir/timer.cc.o.d"
+  "CMakeFiles/main_game.dir/wavefront.cc.o"
+  "CMakeFiles/main_game.dir/wavefront.cc.o.d"
   "main_game"
   "main_game.pdb"
 )
