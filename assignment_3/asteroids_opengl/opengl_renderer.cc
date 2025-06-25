@@ -168,34 +168,30 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-    if(mode != GL_TRIANGLES){
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
-     glEnableVertexAttribArray(0);
-    }else{
-      glVertexAttribPointer(0,
-                              3,        // number of vertices (components)
-                              GL_FLOAT, //
-                              GL_FALSE, // no normalization
-                              9 * sizeof(float), // no of bytes between each vertice (component)
-                              (void*)0);
-        glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0,
+                            3,        // number of vertices (components)
+                            GL_FLOAT, //
+                            GL_FALSE, // no normalization
+                            9 * sizeof(float), // no of bytes between each vertice (component)
+                            (void*)0);
+      glEnableVertexAttribArray(0);
 
-        glVertexAttribPointer(1,
-                              3,        // no vertices (components)
-                              GL_FLOAT, //
-                              GL_FALSE, // no normalization
-                              9 * sizeof(float), // no of bytes between each color (component)
-                              (void*)(6 * sizeof(float)) ); // offset to color data in the vbo
-        glEnableVertexAttribArray(1);
+      glVertexAttribPointer(1,
+                            3,        // no vertices (components)
+                            GL_FLOAT, //
+                            GL_FALSE, // no normalization
+                            9 * sizeof(float), // no of bytes between each color (component)
+                            (void*)(6 * sizeof(float)) ); // offset to color data in the vbo
+      glEnableVertexAttribArray(1);
 
-        glVertexAttribPointer(2,
-                              3,        // no vertices (components)
-                              GL_FLOAT, //
-                              GL_FALSE, // no normalization
-                              9 * sizeof(float), // no of bytes between each color (component)
-                              (void*)(3 * sizeof(float)) ); // offset to color data in the vbo
-        glEnableVertexAttribArray(2);
-                            }
+      glVertexAttribPointer(2,
+                            3,        // no vertices (components)
+                            GL_FLOAT, //
+                            GL_FALSE, // no normalization
+                            9 * sizeof(float), // no of bytes between each color (component)
+                            (void*)(3 * sizeof(float)) ); // offset to color data in the vbo
+      glEnableVertexAttribArray(2);
+                            
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
@@ -212,7 +208,7 @@ std::vector< std::vector<Vector2df> * > vertice_data = {
 
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &matrice[0][0] );
 
-    glDrawArrays(mode, 0, vertices_size/9 );
+    glDrawArrays(mode, 0, vertices_size/2 );
 
     debug(2, "render() exit.");
   }
@@ -333,19 +329,19 @@ void OpenGLRenderer::createVbos() {
  }
 
   glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()]);
-  glBufferData(GL_ARRAY_BUFFER, vertices_spaceship.size() * sizeof(double),vertices_spaceship.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertices_spaceship.size() * sizeof(float),vertices_spaceship.data(), GL_STATIC_DRAW);
   
   glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+1]);
-  glBufferData(GL_ARRAY_BUFFER, vertices_comet.size() * sizeof(double),vertices_comet.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertices_comet.size() * sizeof(float),vertices_comet.data(), GL_STATIC_DRAW);
   
   glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+2]);
-  glBufferData(GL_ARRAY_BUFFER, vertices_UFO.size() * sizeof(double),vertices_UFO.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertices_UFO.size() * sizeof(float),vertices_UFO.data(), GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+3]);
-  glBufferData(GL_ARRAY_BUFFER, vertices_torpedos.size() * sizeof(double),vertices_torpedos.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertices_torpedos.size() * sizeof(float),vertices_torpedos.data(), GL_STATIC_DRAW);
 
   glBindBuffer(GL_ARRAY_BUFFER, vbos[vertice_data.size()+4]);
-  glBufferData(GL_ARRAY_BUFFER, vertices_debrees.size() * sizeof(double),vertices_debrees.data(), GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, vertices_debrees.size() * sizeof(float),vertices_debrees.data(), GL_STATIC_DRAW);
 }
 
 void OpenGLRenderer::create(Spaceship * ship, std::vector< std::unique_ptr<TypedBodyView> > & views) {
@@ -416,7 +412,7 @@ void OpenGLRenderer::create(Debris * debris, std::vector< std::unique_ptr<TypedB
   WavefrontImporter wi5(in5);
   wi5.parse();
   const auto& vertices_debrees = create_vertices(wi5);
-  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[vertice_data.size()+4], shaderProgram, vertices_debrees.size(), 25.0f, GL_TRIANGLES,
+  views.push_back(std::make_unique<TypedBodyView>(debris, vbos[vertice_data.size()+4], shaderProgram, vertices_debrees.size(), 50.0f, GL_TRIANGLES,
             []() -> bool {return true;},
             [debris](TypedBodyView * view) -> void { view->set_scale(Debris::TIME_TO_DELETE - debris->get_time_to_delete());}));   
   debug(4, "create(Debris *) exit.");
@@ -508,48 +504,61 @@ void check_link_status(GLint shader_program) {
   }
 }
 
-
 void OpenGLRenderer::create_shader_programs() {
   const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 position;\n" 
     "layout (location = 1) in vec3 incolor;\n"
     "layout (location = 2) in vec3 innormal;\n"
     "out vec3 color;\n"
-    "out vec4 normal;\n"
+    "out vec3 normal;\n"  // Changed from vec4 to vec3
+    "out vec3 fragPos;\n"  // Add fragment position for better lighting
     "uniform mat4 model;\n"
     "void main()\n"
     "{\n"
-    "gl_Position = model * vec4(position, 1.0);\n"
-    "color = incolor;\n"
-    "normal = normalize( model * vec4(innormal, 1.0));\n"
+    "    gl_Position = model * vec4(position, 1.0);\n"
+    "    color = incolor;\n"
+    "    // Transform normal to world space and normalize\n"
+    "    normal = normalize(mat3(model) * innormal);\n"  // Use mat3 to avoid translation effects
+    "    fragPos = vec3(model * vec4(position, 1.0));\n"  // Fragment position in world space
     "}\0";
 
-  // direction to light source is hard coded: (0,1,-4)  
-  // Lambertian shading used for vertices of triangle
-  // cause during rasterization colors are interpolated, the result is Gouraud-Shading
+  // Fixed fragment shader with proper lighting calculation
   const char *fragmentShaderSource = "#version 330 core\n"
-  "out vec4 outColor;\n"
-  "in vec3 color;\n"
-  "in vec4 normal;\n"
-  "void main () {\n"
-  "  outColor = vec4(color * (0.3 + 0.7 * max(0.0, dot(normal, normalize( vec4(0.0, 1.0, -4.0, 0.0))))) , 1.0);\n"
-  "}\n\0";
+    "out vec4 outColor;\n"
+    "in vec3 color;\n"
+    "in vec3 normal;\n"
+    "in vec3 fragPos;\n"
+    "void main() {\n"
+    "    // Ambient lighting\n"
+    "    float ambientStrength = 0.3;\n"
+    "    vec3 ambient = ambientStrength * color;\n"
+    "    \n"
+    "    // Diffuse lighting\n"
+    "    vec3 lightDir = normalize(vec3(0.0,10.0, -4.0));\n"  // Light direction\n"
+    "    float diff = max(dot(normalize(normal), lightDir), 0.0);\n"
+    "    vec3 diffuse = diff * color;\n"
+    "    \n"
+    "    vec3 result = ambient + diffuse;\n"
+    "    outColor = vec4(result, 1.0);\n"
+    "}\n\0";
   
-  GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER) ;
+  GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
   compile_shader(vertexShader, vertexShaderSource);
 
-  GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER) ;
+  GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
   compile_shader(fragmentShader, fragmentShaderSource);
 
-  shaderProgram = glCreateProgram() ;
+  shaderProgram = glCreateProgram();
   glAttachShader(shaderProgram, vertexShader);
   glAttachShader(shaderProgram, fragmentShader);
   glBindFragDataLocation(shaderProgram, 0, "outColor");
   glLinkProgram(shaderProgram);
   check_link_status(shaderProgram);
+  
+  // Clean up shaders (they're linked into the program now)
+  glDeleteShader(vertexShader);
+  glDeleteShader(fragmentShader);
 }
-
-
 
 bool OpenGLRenderer::init() {
   if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
